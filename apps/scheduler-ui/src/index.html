@@ -1,0 +1,3370 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>UltRenos Scheduler</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <main>
+      <h1>
+        Future Home of Ultimate Renovations Project Managers' Online Scheduler
+      </h1>
+      <p>Served from var/www/scheduler.ultrenos.ca</p>
+      <p></p>
+
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          text-align: center;
+          background: #fdfdfd;
+        "
+      >
+        <span
+          style="
+            font-size: 35px;
+            font-family: 'Helvetica Neue';
+            color: black;
+          "
+          >Phases and Tasklist</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          text-align: center;
+          background: #fdfdfd;
+        "
+      >
+        <span style="font-family: 'Helvetica Neue'; color: black"
+          >08-Jun-2024</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: #fdfdfd;
+        "
+      >
+        <span
+          style="
+            font-size: 11px;
+            font-family: 'Helvetica Neue';
+            color: black;
+          "
+          >&nbsp;</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: #fdfdfd;
+        "
+      >
+        <span
+          style="
+            font-size: 24px;
+            font-family: 'Helvetica Neue';
+            color: black;
+          "
+          >Client: Ultimate Renovations</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: #fdfdfd;
+        "
+      >
+        <span
+          style="
+            font-size: 11px;
+            font-family: 'Helvetica Neue';
+            color: black;
+          "
+          >&nbsp;</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span
+          style="
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            color: black;
+          "
+          >&nbsp;</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span
+          style="
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            color: black;
+          "
+          >Simple Project Management WebApp to mirror and improve upon current
+          Project Management Excel Sheet used by Ultimate
+          Renovations.&nbsp;</span
+        ><span style="font-size: 13px; font-family: Helvetica; color: black"
+          >See Image at the end of this document for more information on
+          requirements.</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span style="font-size: 13px; font-family: Helvetica; color: black"
+          >&nbsp;</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span style="font-size: 13px; font-family: Helvetica; color: black"
+          >Client&rsquo;s current functionality includes:</span
+        >
+      </p>
+      <ol style="list-style-type: decimal">
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >Create, View, Edit, and Delete resource assignments</span
+          >
+        </li>
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >Simplicity, no training necessary</span
+          >
+        </li>
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >Project Managers can easily see their jobs by colour when viewing
+            all jobs</span
+          >
+        </li>
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >Ability to add additional information such a comments and
+            notes</span
+          >
+        </li>
+      </ol>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span style="font-size: 13px; font-family: Helvetica; color: black"
+          >&nbsp;</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span style="font-size: 13px; font-family: Helvetica; color: black"
+          >Client also wants to add:</span
+        >
+      </p>
+      <ol style="list-style-type: decimal">
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >More views</span
+          >
+          <ol style="list-style-type: lower-alpha">
+            <li>
+              <span
+                style="font-family: Helvetica; font-size: 10pt; color: black"
+                >View by project site</span
+              >
+            </li>
+            <li>
+              <span
+                style="font-family: Helvetica; font-size: 10pt; color: black"
+                >View by project manager</span
+              >
+            </li>
+            <li>
+              <span
+                style="font-family: Helvetica; font-size: 10pt; color: black"
+                >View by resource? (my suggestion)</span
+              >
+            </li>
+            <li>
+              <span
+                style="font-family: Helvetica; font-size: 10pt; color: black"
+                >Month view? (my suggestion)</span
+              >
+            </li>
+            <li>
+              <span
+                style="font-family: Helvetica; font-size: 10pt; color: black"
+                >Day view? (my suggestion)</span
+              >
+            </li>
+          </ol>
+        </li>
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >Reporting (likely mirrors views?)</span
+          >
+        </li>
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >Ability to be more specific about times for those days when a
+            resource is at more than one project site during a work-day</span
+          >
+        </li>
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >Mobile friendly</span
+          >
+        </li>
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >Web-based, not locally hosted</span
+          >
+        </li>
+        <li>
+          <span style="font-family: Helvetica; font-size: 10pt; color: black"
+            >More efficient use of screen space</span
+          >
+        </li>
+      </ol>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span style="font-size: 19px; font-family: Helvetica; color: black"
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span style="font-size: 19px; font-family: Helvetica; color: black"
+            >Phase 1 - Foundations</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <table style="border-collapse: collapse; border: none">
+        <tbody>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Category</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Item</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Completed</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Notes</span
+                  ></strong
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Auth</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <div
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <ul style="margin-bottom: 0cm; list-style-type: disc">
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >Username/password Authentication</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >Password reset</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                ></span>
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <div
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <ul style="margin-bottom: 0cm; list-style-type: disc">
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >Multi-factor can be added for
+                    </span>
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >Social Media auth (Google, Facebook) can be added for
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >DataBase</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <div
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <ul style="margin-bottom: 0cm; list-style-type: disc">
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >Implement needed database collections, schemas, and
+                      indexes</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >Integrate with BE</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 24px;
+                    font-family: 'Arial', sans-serif;
+                    color: green;
+                  "
+                >&#10003;<br/><br/>&#10003;</span>
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >MongoDb, same db solution used by the timesheets app</span
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >BackEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <div
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <ul style="margin-bottom: 0cm; list-style-type: disc">
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >API Endpoints for Data retrieval and manipulation</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >All necessary unit tests</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >All necessary schema validations</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 24px;
+                    font-family: 'Arial', sans-serif;
+                    color: green;
+                  "
+                >&#10003;<br/>&#10003;</span>
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >&nbsp;</span
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >BackEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <div
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <ul style="margin-bottom: 0cm; list-style-type: disc">
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >Set up server for app hosting&nbsp;</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >create an internet gateway</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="font-family: 'Arial', sans-serif"
+                      >assign domain name</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 24px;
+                    font-family: 'Arial', sans-serif;
+                    color: green;
+                  "
+                  >&#10003;</span
+                >
+              </p>
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 24px;
+                    font-family: 'Arial', sans-serif;
+                    color: green;
+                  "
+                  >&#10003;</span
+                >
+              </p>
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 24px;
+                    font-family: 'Arial', sans-serif;
+                    color: green;
+                  "
+                  >&#10003;</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Need to decide on domain name. Something like
+                  scheduler.ultrenos.ca. The timesheets one is
+                  timesheets.ultrenos.ca</span
+                >
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+          ></span
+        ></strong>
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span
+          style="
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            color: black;
+          "
+        ></span>
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 19px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >Phase 2 (match current functionality)</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <table style="border-collapse: collapse; border: none">
+        <tbody>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Category</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Item</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Completed</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Notes</span
+                  ></strong
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >User Interface&nbsp;</span
+                >
+              </p>
+              <div
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <ul style="margin-bottom: 0cm; list-style-type: disc">
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="background: white">All Projects View</span>
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="background: white">One project only View</span>
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="background: white">One Manager Only View</span>
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="background: white"
+                      >Create, Edit, and Delete resource assignments</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="background: white"
+                      >All current functionality with some improvements</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin: 0cm;
+                      font-size: 16px;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <span style="background: white"
+                      >Assignments can be time specific</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                  ></span
+                ></strong>
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >The colours can be added automatically based on who is assigned to the project.</span
+                >
+              </p>
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >&nbsp;</span
+                >
+              </p>
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >Assignments will default to all-day, but will have the option
+                  to assign specific times</span
+                >
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span
+          style="
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            color: black;
+          "
+          >&nbsp;</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <span
+          style="
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            color: black;
+          "
+          >If desired, the App can be used at this point and will have equal or
+          better functionality than your current solution</span
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 19px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >Phase 3 (Enhance functionality)</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <table style="border-collapse: collapse; border: none">
+        <tbody>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Category</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Item</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Completed</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Notes</span
+                  ></strong
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >Mobile Version (phase 3)</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                  ></span
+                ></strong>
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 11px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Grid-type apps are very challenging for mobile due to space
+                  constraints and will require a significantly different design
+                  to fit on a phone screen.</span
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >Reports based on views</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                  ></span
+                ></strong>
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >&nbsp;</span
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >Good solution for notes, do you like the notes on hover as
+                  you have now?</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >???</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Probably no charge, depending on solution</span
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >Calendar Option Auto-linked</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >???</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Need more info</span
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >Month View</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                  ></span
+                ></strong>
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Dev suggestion, needs approval</span
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >Day View</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                  ></span
+                ></strong>
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Dev suggestion, needs approval</span
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 56.45pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                  background: #fdfdfd;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                    background: white;
+                  "
+                  >View by Resource</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 107pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                  ></span
+                ></strong>
+              </p>
+            </td>
+            <td
+              style="
+                width: 119.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Dev suggestion, needs approval</span
+                >
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 19px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 19px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >Phase 4 (Ideas that come up during development)</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <table style="border-collapse: collapse; border: none">
+        <tbody>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Category</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Item</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Approved</span
+                  ></strong
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-image: initial;
+                border-left: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <strong
+                  ><span
+                    style="
+                      font-size: 13px;
+                      font-family: 'Arial', sans-serif;
+                      color: black;
+                    "
+                    >Notes</span
+                  ></strong
+                >
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial';, sans-serif;
+                    color: black;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Month View</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                ></span>
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Dev suggestion
+                </span>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial';, sans-serif;
+                    color: black;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >View Timesheet by Clicking on Resource</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                ></span>
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Project Manager suggestion
+                </span>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial';, sans-serif;
+                    color: black;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Day View</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                ></span>
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Dev suggestion
+                </span>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial';, sans-serif;
+                    color: black;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >View by Resource</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                ></span>
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Dev suggestion
+                </span>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                width: 54.15pt;
+                border-right: 1pt solid windowtext;
+                border-bottom: 1pt solid windowtext;
+                border-left: 1pt solid windowtext;
+                border-image: initial;
+                border-top: none;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial';, sans-serif;
+                    color: black;
+                  "
+                  >FrontEnd</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 187.8pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >"Your Schedule" Button in timesheets for resource to view
+                  only their schedule</span
+                >
+              </p>
+            </td>
+            <td
+              style="
+                width: 41.3pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                ></span>
+              </p>
+            </td>
+            <td
+              style="
+                width: 184.25pt;
+                border-top: none;
+                border-left: none;
+                border-bottom: 1pt solid windowtext;
+                border-right: 1pt solid windowtext;
+                padding: 0cm 5.4pt;
+                vertical-align: top;
+              "
+            >
+              <p
+                style="
+                  margin: 0cm;
+                  font-size: 16px;
+                  font-family: 'Calibri', sans-serif;
+                "
+              >
+                <span
+                  style="
+                    font-size: 13px;
+                    font-family: 'Arial', sans-serif;
+                    color: black;
+                  "
+                  >Dev suggestion
+                </span>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+      <p
+        style="
+          margin: 0cm;
+          font-size: 16px;
+          font-family: 'Calibri', sans-serif;
+          background: white;
+        "
+      >
+        <strong
+          ><span
+            style="
+              font-size: 13px;
+              font-family: 'Arial', sans-serif;
+              color: black;
+            "
+            >&nbsp;</span
+          ></strong
+        >
+      </p>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

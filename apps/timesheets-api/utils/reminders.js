@@ -1,0 +1,99 @@
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' });
+
+// choose DB based on NODE_ENV
+let DB;
+if (process.env.NODE_ENV==='production') DB = process.env.DATABASE.replace(
+    '<PASSWORD>',
+    process.env.DATABASE_PASSWORD
+);
+// staging uses portfolio db
+if (process.env.NODE_ENV==='staging') DB = process.env.DATABASE_STAGING.replace(
+    '<PASSWORD>',
+    process.env.DATABASE_PASSWORD
+);
+// local uses portfolio db
+if (process.env.NODE_ENV==='local') DB = process.env.DATABASE_STAGING.replace(
+    '<PASSWORD>',
+    process.env.DATABASE_PASSWORD
+);
+
+const {timesheetReminder} = require('../assets/emailTemplates/timesheetReminder');
+const {Timesheets} = require('../schemas/TimesheetsSchema');
+const {Users} = require('../schemas/UserSchema');
+
+(async function sendEmails() {
+    // initiate variables
+    let userList;
+    let timesheetList;
+    // create connection
+    try {
+        await mongoose
+        .connect(DB, {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useFindAndModify: false,
+            useUnifiedTopology: true
+        });
+        console.log('connection established')
+    } catch (e) {
+        console.log('error establishing connection', e.message);
+    }
+    // get users
+    try {
+        userList = await Users.find();
+    } catch (e) {
+        console.log('error fetching users', e.message);
+    }
+    // get timesheets
+    try {
+        timesheetList = await Timesheets.find();
+    } catch (e) {
+        console.log('error fetching users', e.message);
+    }
+    // filter Timesheets for last three business days
+    const recentSheets = [];
+    // adjust 1 and 3 days ago to 1 and 3 BUSINESS days ago
+    let threeWorkdayMillies = 3*60*60*24*1000;
+    let oneWorkdayMillies = 1*60*60*24*1000;
+    if (new Date().getDay()===1) {threeWorkdayMillies=5*60*60*24*1000;oneWorkdayMillies=3*60*60*24*1000}
+    if (new Date().getDay()===2) {threeWorkdayMillies=4*60*60*24*1000;oneWorkdayMillies=2*60*60*24*1000}
+    // filter for timesheets entered within the last 3 business days
+    timesheetList.map(sheet=>{
+        if (new Date().getTime() - new Date(sheet.starttime).getTime() < threeWorkdayMillies) {
+            recentSheets.push(sheet);
+        }
+    });
+    // check if active users have a timesheet in the last 3 business days
+    let found; 
+    let updated=[];
+    userList.map(user=>{
+        found=false;
+        if (user.role!=='admin') {
+            // check for recent timesheet
+            recentSheets.map(sheet=>{
+                if (sheet.userid === user.email) found=true;
+            });
+            // check that reminderLastSent has default value
+            if ((!user.reminderLastSent)||user.reminderLastSent===undefined) user.reminderLastSent='1900-01-01T09:00:03.341+00:00';
+            // if not found, send timesheet reminder email
+            if (!found&&(user.reminderLastSent&&user.reminderLastSent!==undefined&&((new Date().getTime())-(new Date(user.reminderLastSent).getTime())>=oneWorkdayMillies))) {
+                timesheetReminder(user);
+                updated.push(user._id);
+            }
+        }
+    });
+    // if user sent reminder email, update user.reminderLastSent to today's date
+    try {
+        await Users.updateMany(
+            { _id: { $in: updated } }, 
+            { $set: { reminderLastSent: new Date() } },
+            console.log(`Success sending reminder email and updating reminderLastSent.`,updated.length)
+        );
+    } catch (e) {
+        console.log(`Error updating reminderLastSent. ${e.message}`);
+    }
+    // close connection
+    mongoose.connection.close();
+})();
