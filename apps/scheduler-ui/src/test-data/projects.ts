@@ -1,4 +1,4 @@
-export const projects: Projects[] = [
+export const projects = [
     {
         name: 'Downtown Highrise',
         address: '123 Main St, Calgary, AB',

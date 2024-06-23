@@ -1,4 +1,4 @@
-import { UserRoles } from '../enums/userRoles';
+import { UserRoles } from '../enums/UserRoles';
 
 export interface User {
     passwordChangedAt: Date;

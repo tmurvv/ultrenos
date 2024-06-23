@@ -1,3 +1,5 @@
+import { UserRoles } from "./enums/UserRoles";
+
 export const testData = {
   resources: [
     "Michael Lam",
@@ -61,5 +63,16 @@ export const testData = {
     "Diaz",
     "Roberts",
     "Nguyen",
+  ],
+  users: [
+    {
+      firstName: "Michael",
+      lastName: "Lam",
+      email: "test123@test",
+      password: "456",
+      roles: [UserRoles.ADMIN],
+      id: "123e4567-e89b-12d3-a456-426614174000",
+      passwordChangedAt: new Date("2023-06-01T14:30:00Z"),
+    },
   ],
 };

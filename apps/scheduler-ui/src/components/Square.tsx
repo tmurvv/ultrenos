@@ -1,40 +1,59 @@
 import { Box, Typography } from "@mui/material";
 
+interface SquareProps {
+  assignment?: { projectName: string };
+  text?: string;
+  type?: "all" | "weekend" | "colRowHeader" | "rowHeader" | "colHeader";
+  dayType?: string;
+}
+
+const LIGHT_GREY = "lightGrey";
+const DARK_GREY = "darkGrey";
+const BLACK = "black";
+const WHITE = "white";
+const COLOR_030303 = "#030303";
+const COLOR_B3CFE8 = "#b3cfe8";
+const COLOR_F9AE33 = "#f9ae33";
+
 const sx = {
   all: {
-    border: "1px solid lightGrey",
+    border: `1px solid ${LIGHT_GREY}`,
     minHeight: "20px",
     width: "100px",
-    backgroundColor: "white",
-    color: "#030303",
+    backgroundColor: WHITE,
+    color: COLOR_030303,
   },
   weekend: {
-    border: "1px solid darkGrey",
-    backgroundColor: "lightGrey",
+    border: `1px solid ${DARK_GREY}`,
+    backgroundColor: LIGHT_GREY,
   },
   colRowHeader: {
-    border: "1px solid darkGrey",
-    backgroundColor: "lightGrey",
-    color: "black",
+    border: `1px solid ${DARK_GREY}`,
+    backgroundColor: LIGHT_GREY,
+    color: BLACK,
     width: "200px",
   },
   rowHeader: {
-    border: "1px solid black",
-    backgroundColor: "#b3cfe8",
-    width: "200px"
+    border: `1px solid ${BLACK}`,
+    backgroundColor: COLOR_B3CFE8,
+    width: "200px",
   },
   colHeader: {
-    border: "1px solid black",
-    backgroundColor: "#f9ae33",
+    border: `1px solid ${BLACK}`,
+    backgroundColor: COLOR_F9AE33,
   },
+  default: {},
 };
 
-export const Square = ({ assignment, text, type }) => {
-  console.log("text", text);
-  assignment = {projectName: "test 1"};
+export const Square: React.FC<SquareProps> = ({
+  assignment: assignment,
+  text,
+  type,
+}) => {
+  const projectName = assignment?.projectName;
   return (
-    <Box sx={{ ...sx.all, ...sx[type] }}>
-      <Typography>{text || assignment.projectName}</Typography>
+    <Box sx={{ ...sx.all, ...sx[type ?? "default"] }}>
+      <Typography>{text || projectName || ""}</Typography>
     </Box>
   );
 };

@@ -1,19 +1,19 @@
 import { Box } from "@mui/material";
 import { Square } from "./Square.js";
 
-const HeaderSquare = ({text, type}) => (
-  <Box
-    sx={{
-      border: "2px solid black",
-      minHeight: "20px",
-      width: "100px",
-      backgroundColor: "white",
-      color: "#030303",
-    }}
-  >
-    <Square text={text} type={type}/>
-  </Box>
-);
+// const HeaderSquare = ({text, type}) => (
+//   <Box
+//     sx={{
+//       border: "2px solid black",
+//       minHeight: "20px",
+//       width: "100px",
+//       backgroundColor: "white",
+//       color: "#030303",
+//     }}
+//   >
+//     <Square text={text} type={type}/>
+//   </Box>
+// );
 
 export const MainViewHeaderRow = () => {
   return (
