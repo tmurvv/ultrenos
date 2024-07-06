@@ -17,7 +17,7 @@ import { Square } from "./Square.js";
 
 export const MainViewHeaderRow = () => {
   return (
-    <Box display={"flex"}>
+    <Box display={"flex"} width={"100%"}>
       <Square text={""} type={"colRowHeader"}/>
       <Square text={"Monday"} type={"colHeader"} />
       <Square text={"Tuesday"} type={"colHeader"} />

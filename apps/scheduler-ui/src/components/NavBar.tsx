@@ -5,6 +5,8 @@ import { Box, List } from "@mui/material";
 import { UserContext, ViewContext } from "../App";
 import { ViewContexts } from "../enums/ViewContexts";
 import { UserRoles } from "../enums/UserRoles";
+import {DEFAULT_USER} from "./auth/DEFAULT_USER";
+import {useEffect} from "react";
 //internal
 // import {PageContext} from '../contexts/PageContext.js';
 // import {UserContext} from '../contexts/UserContext.js';
@@ -13,7 +15,7 @@ import { UserRoles } from "../enums/UserRoles";
 // import NavBarCss from '../styles/NavBar.css.js'
 
 const { AUTH, MAIN, DASHBOARD } = ViewContexts;
-const { ADMIN, PROJECT_MANAGER, RESOURCE } = UserRoles;
+const { ADMIN } = UserRoles;
 
 const sx = {
   body: {
@@ -85,10 +87,13 @@ export const NavBar = () => {
   // // set mobile environment
   // useEffect(()=>handleResize());
   // // reset window width on window resize
-  // useEffect(() => {
-  //     window.addEventListener('resize', handleResize);
-  //     return () => { window.removeEventListener('resize', handleResize) }
-  // }, []);
+  useEffect(() => {
+    if (!user) {
+      setUser(DEFAULT_USER);
+    }
+      // window.addEventListener('resize', handleResize);
+      // return () => { window.removeEventListener('resize', handleResize) }
+  }, [user]);
   return (
     <>
       <Box sx={sx.body.navBarOuter}>
@@ -103,21 +108,8 @@ export const NavBar = () => {
         <>
           <Router>
             <nav style={{ height: "100%" }}>
+              {open && <p>{open}</p>}
               <List sx={sx.body.navLinks}>
-                {/*<Box*/}
-
-                {/*  onClick={(e) => setOpen(false)}*/}
-                {/*  // style={{*/}
-                {/*  //   opacity: `${open && mobile ? 0.6 : 0}`,*/}
-                {/*  //   display: `${open && mobile ? "flex" : "none"}`,*/}
-                {/*  // }}*/}
-                {/*>*/}
-                {/*  <img*/}
-                {/*    src="/img/close.png"*/}
-                {/*    alt="close mobile menu icon"*/}
-                {/*    style={{ height: "15px" }}*/}
-                {/*  />*/}
-                {/*</Box>*/}
                 {user?.email && (
                   <li style={{ fontSize: "16px" }}>
                     {user.email ? (
@@ -189,7 +181,7 @@ export const NavBar = () => {
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/view-by-resource"
                     onClick={() => {
                       if (user?.email) {
                         setOpen(false);
@@ -202,7 +194,7 @@ export const NavBar = () => {
                     }}
                     style={{color: "black !important"}}
                   >
-                    View One Resource
+                    View By Resource
                   </Link>
                 </li>
                 {!user?.email && (
@@ -236,7 +228,7 @@ export const NavBar = () => {
                     <Link
                       to="/"
                       onClick={() => {
-                        setUser(null);
+                        setUser(DEFAULT_USER);
                         setCurrentView(AUTH);
                         setOpen(false);
                       }}

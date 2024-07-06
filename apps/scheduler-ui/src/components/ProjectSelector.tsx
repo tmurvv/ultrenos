@@ -20,19 +20,22 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
   };
 
   return (
-    <Box sx={{ minWidth: 120, width: "fit-content", mb: 2 }}>
-      <FormControl variant="standard">
+    <Box sx={{ minWidth: 120, width: "100%", mb: 2 }}>
+      <FormControl variant="standard" fullWidth>
         <InputLabel id="select-projectName-label">Select Projects</InputLabel>
         <Select
           id="select-projectName"
+          // defaultValue={"all"}
           value={projectName}
           label="Select project"
           onChange={handleChange}
+          fullWidth = {true}
+          mr={1}
         >
           <MenuItem value={"all"}>All projects</MenuItem>
           <MenuItem value={"user"}>My projects</MenuItem>
           {testData.projectNames.sort().map((project) => (
-            <MenuItem value={project} key={project}>
+            <MenuItem value={project} key={project} width={"100%"}>
               {project}
             </MenuItem>
           ))}

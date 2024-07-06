@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import * as React from "react";
 
 interface SquareProps {
   assignment?: { projectName: string };
@@ -19,9 +20,10 @@ const sx = {
   all: {
     border: `1px solid ${LIGHT_GREY}`,
     minHeight: "20px",
-    width: "100px",
+    // width: "100px",
     backgroundColor: WHITE,
     color: COLOR_030303,
+    flex: 1
   },
   weekend: {
     border: `1px solid ${DARK_GREY}`,
@@ -31,12 +33,14 @@ const sx = {
     border: `1px solid ${DARK_GREY}`,
     backgroundColor: LIGHT_GREY,
     color: BLACK,
-    width: "200px",
+    flex: 2
+    // width: "200px",
   },
   rowHeader: {
     border: `1px solid ${BLACK}`,
     backgroundColor: COLOR_B3CFE8,
-    width: "200px",
+    flex: 2
+    // width: "200px",
   },
   colHeader: {
     border: `1px solid ${BLACK}`,

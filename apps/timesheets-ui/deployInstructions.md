@@ -1,4 +1,6 @@
-Currently served from D.O. account tmurv@shaw.ca 143.198.188.28
+Currently served from Barebones Server tmurv@66.85.30.155 -p 222
+Domains registered with grape.ca username tmurvv
+
 - FE = /var/www/timesheets.ultrenos.ca/html
 - FE URL = timesheets.ultrenos.ca
 - BE = /app/ultrenos/ultrenostimesheets-api

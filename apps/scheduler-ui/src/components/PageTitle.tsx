@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 
+type pageTitleProps = {
+    mainTitle: string;
+    subTitle: string;}
 const sx = {
   mainTitle: {
     textAlign: "center",
@@ -21,19 +23,13 @@ const sx = {
   },
 };
 
-export const PageTitle = ({ maintitle, subtitle }) => {
-  const [winWidth, setWinWidth] = useState(2000);
-  useEffect(() => {
-    setWinWidth(window.innerWidth);
-  }, []);
-  return (
-    <>
-      <Box sx={sx.mainTitle}>
-        <Typography variant={"h3"}>{maintitle}</Typography>
-      </Box>
-      <Box sx={sx.subTitle}>
-        <Typography variant={"h5"}>{subtitle}</Typography>
-      </Box>
-    </>
-  );
-};
+export const PageTitle: React.FC<pageTitleProps> = ({ mainTitle, subTitle }) => (
+  <>
+    <Box sx={sx.mainTitle}>
+      <Typography variant={"h3"}>{mainTitle}</Typography>
+    </Box>
+    <Box sx={sx.subTitle}>
+      <Typography variant={"h5"}>{subTitle}</Typography>
+    </Box>
+  </>
+);

@@ -1,10 +1,11 @@
 import {Box} from "@mui/material";
-import {SignUp} from "./SignUp";
+// import {SignUp} from "./SignUp";
 
 export const AuthView = () => {
     return (
         <Box display={"flex"} width={"100%"} justifyContent={"center"}>
-            <SignUp/>
+            <h1>AuthView</h1>
+            {/*<SignUp/>*/}
         </Box>
     );
 };

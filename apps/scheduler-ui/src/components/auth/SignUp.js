@@ -17,116 +17,138 @@ import {
 import { PageTitle } from "../PageTitle";
 import { UserContext } from "../../App";
 import { User } from "../../interfaces/User";
+import { UserRoles } from "../../enums/UserRoles";
 // import Spinner from "./Spinner";
 type CurrentUser = User | null;
+type SignUpUser = CurrentUser & {
+  change: boolean;
+  confirmEmail: string;
+  confirmPassword: string;
+};
 const sx = {};
+const { PROJECT_MANAGER } = UserRoles;
+
+interface HttpError extends Error {
+  statusCode: number;
+  message: string;
+  response: {
+    data: {
+      message: string;
+    };
+  };
+}
+
 export const SignUp = ({ setPage }) => {
   // declare variables
   const { setUser } = React.useContext(UserContext);
-  const [signupUser, setSignupUser] = React.useState<CurrentUser>();
+  // const [signupUser, setSignupUser] = React.useState<CurrentUser>();
+  const [signupUser, setSignupUser] = ({});
 
-  const handleChange = (evt) => {
-    setSignupUser({
-      ...signupUser,
-      [evt.target.name]: evt.target.value,
-      change: true,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name !== "passwordChangedAt") { // TODO: separate types from user to save from user on form
+      setSignupUser({
+        ...signupUser,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
-  const handleSubmit = async (evt) => {
+  const handleSubmit = async () => {
     // validations
-    if (!signupUser?.firstname || signupUser?.firstname.length < 1) {
+    if (!signupUser?.firstName || signupUser?.firstName.length < 1) {
       return alert("First name is required.");
     }
-    if (!signupUser?.lastname || signupUser?.lastname.length < 1) {
+    if (!signupUser?.lastName || signupUser?.lastName.length < 1) {
       return alert("Last name is required.");
     }
     if (!signupUser?.password || signupUser?.password.length < 8) {
       return alert("Passwords must be at least 8 characters.");
     }
-    if (signupUser?.email !== signupUser?.confirmemail) {
+    if (signupUser?.email !== signupUser?.confirmEmail) {
       return alert("Emails do not match.");
     }
-    if (signupUser?.password !== signupUser?.confirmpassword) {
+    if (signupUser?.password !== signupUser?.confirmPassword) {
       return alert("Passwords do not match.");
     }
     // start spinner
-    if (document.querySelector("#spinner"))
-      document.querySelector("#spinner").style.display = "flex";
+    // if (document.querySelector("#spinner"))
+    //   document.querySelector("#spinner").style.display = "flex";
     // create signup user object
-    const newUser = {
-      firstname: signupUser?.firstname,
-      lastname: signupUser?.lastname,
-      email: signupUser?.email,
-      password: signupUser?.password,
+    const newUser: CurrentUser = {
+      firstName: signupUser.firstName,
+      lastName: signupUser.lastName,
+      email: signupUser.email,
+      password: signupUser.password,
       id: uuid(),
+      passwordChangedAt: new Date(),
+      roles: [PROJECT_MANAGER],
     };
+    // passwordChangedAt: Date;
+    // firstName: string;
+    // lastName: string;
+    // email: string;
+    // password: string;
+    // roles: UserRoles[];
+    // id: string;
     try {
       // signup user
       const res = await axios.put(
-        `http://localhost:7050/v1/users/${signupUser?.id}`,
+        `http://localhost:7050/v1/users/${newUser?.id}`,
         newUser,
       );
       if (res.status === 201 || res.status === 200) {
         // set userContext to added user
-        const addeduser = res.data.newuser;
-        setUser({
-          firstname: addeduser.firstname,
-          lastname: addeduser.lastname,
-          email: addeduser.email,
-        });
+        setUser(newUser);
         // in-app message
         alert("Signup Successful.");
         // set environment
         setPage("EnterTimesheet");
       }
       // stop spinner
-      if (document.querySelector("#spinner"))
-        document.querySelector("#spinner").style.display = "none";
-    } catch (e) {
+      // if (document.querySelector("#spinner"))
+      //   document.querySelector("#spinner").style.display = "none";
+    } catch (e: unknown) {
       // log error
-      console.log("Error on signup", e.response);
+      // console.log("Error on signup", e?.response);
       // in-app message
-      if (
-        e.response &&
-        e.response.data &&
-        e.response.data.message.toUpperCase().includes("EXISTS")
-      ) {
-        // email in use
-        alert("Email already in use.");
-      } else {
-        // all other errors
-        alert(
-          `Something went wrong on signup. Please check your network connection.`,
-        );
-      }
+      // if (
+      //   typeof e === HttpError && e?.response?.data?.message?.toUpperCase()?.includes("EXISTS")
+      // ) {
+      //   // email in use
+      //   alert("Email already in use.");
+      // } else {
+      // all other errors
+      alert(
+        `Something went wrong on signup. Please check your network connection.`,
+      );
+      // }
       // stop spinner
-      if (document.querySelector("#spinner"))
-        document.querySelector("#spinner").style.display = "none";
+      // if (document.querySelector("#spinner"))
+      //   document.querySelector("#spinner").style.display = "none";
     }
   };
   // set environment
-  React.useEffect(() => {
-    if (document.querySelector("#spinner"))
-      document.querySelector("#spinner").style.display = "none";
-  }, []);
+  // React.useEffect(() => {
+  //   if (document.querySelector("#spinner"))
+  //     document.querySelector("#spinner").style.display = "none";
+  // }, []);
   return (
     <>
       <Box py={4}>
         {/*<Spinner />*/}
-        <PageTitle maintitle="Signup" subtitle="" />
+        <PageTitle mainTitle="Signup" subTitle="" />
         <Box
           style={{ cursor: "pointer", margin: "auto", width: "fit-content" }}
           onClick={() => {
             setPage("Login");
           }}
         >
-          <Button type="Button">Click Here to Login</Button>
+          <Button type="button">Click Here to Login</Button>
         </Box>
         <Box mt={2} width={"320px"} id="signup">
           <form onSubmit={() => handleSubmit()}>
             <Box width={"100%"}>
               <Box sx={{ width: "100%" }}>
-                <Typography element={"h3"}>
+                <Typography component={"h3"}>
                   First Name<span style={{ color: "orangered" }}>*</span>
                 </Typography>
               </Box>
@@ -138,8 +160,8 @@ export const SignUp = ({ setPage }) => {
                 name="firstname"
                 required
               />
-              <Box sx={sx.TextFieldName}>
-                <Typography element={"h3"}>
+              <Box>
+                <Typography component={"h3"}>
                   Last Name<span style={{ color: "orangered" }}>*</span>
                 </Typography>
               </Box>
@@ -151,8 +173,8 @@ export const SignUp = ({ setPage }) => {
                 name="lastname"
                 required
               />
-              <Box sx={{ ...sx.TextFieldName, ...sx.TextFieldMargin }}>
-                <Typography element={"h3"}>
+              <Box>
+                <Typography component={"h3"}>
                   Email<span style={{ color: "orangered" }}>*</span>
                 </Typography>
               </Box>
@@ -165,8 +187,8 @@ export const SignUp = ({ setPage }) => {
                 name="email"
                 required
               />
-              <Box sx={{ ...sx.TextFieldName, ...sx.TextFieldMargin }}>
-                <Typography element={"h3"}>
+              <Box>
+                <Typography component={"h3"}>
                   Confirm Email<span style={{ color: "orangered" }}>*</span>
                 </Typography>
               </Box>
@@ -179,8 +201,8 @@ export const SignUp = ({ setPage }) => {
                 name="confirmEmail"
                 required
               />
-              <Box sx={{ ...sx.TextFieldName, ...sx.TextFieldMargin }}>
-                <Typography element={"h3"}>
+              <Box>
+                <Typography component={"h3"}>
                   Password<span style={{ color: "orangered" }}>*</span>
                 </Typography>
               </Box>
@@ -193,8 +215,8 @@ export const SignUp = ({ setPage }) => {
                 name="password"
                 required
               />
-              <Box sx={{ ...sx.TextFieldName, ...sx.TextFieldMargin }}>
-                <Typography element={"h3"}>
+              <Box>
+                <Typography component={"h3"}>
                   Confirm Password<span style={{ color: "orangered" }}>*</span>
                 </Typography>
               </Box>
@@ -213,11 +235,11 @@ export const SignUp = ({ setPage }) => {
                 style={{
                   width: "100%",
                   display: "flex",
-                  justifyContent: "space-evenly"
+                  justifyContent: "space-evenly",
                 }}
               >
                 <Button
-                  type="Button"
+                  type="button"
                   sx={{ alignItems: "center" }}
                   onClick={handleSubmit}
                   variant="contained"
@@ -225,10 +247,10 @@ export const SignUp = ({ setPage }) => {
                   Submit
                 </Button>
                 <Button
-                  type="Button"
+                  type="button"
                   onClick={() => setPage("Homepage")}
                   variant="contained"
-                  sx={{color: "white", backgroundColor: "black"}}
+                  sx={{ color: "white", backgroundColor: "black" }}
                 >
                   Cancel
                 </Button>
