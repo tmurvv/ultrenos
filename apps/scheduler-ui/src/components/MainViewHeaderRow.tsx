@@ -1,24 +1,10 @@
 import { Box } from "@mui/material";
 import { Square } from "./Square.js";
 
-// const HeaderSquare = ({text, type}) => (
-//   <Box
-//     sx={{
-//       border: "2px solid black",
-//       minHeight: "20px",
-//       width: "100px",
-//       backgroundColor: "white",
-//       color: "#030303",
-//     }}
-//   >
-//     <Square text={text} type={type}/>
-//   </Box>
-// );
-
 export const MainViewHeaderRow = () => {
   return (
     <Box display={"flex"} width={"100%"}>
-      <Square text={""} type={"colRowHeader"}/>
+      <Square text={"Resource / NYI: dynamic by view"} type={"colRowHeader"}/>
       <Square text={"Monday"} type={"colHeader"} />
       <Square text={"Tuesday"} type={"colHeader"} />
       <Square text={"Wednesday"} type={"colHeader"} />

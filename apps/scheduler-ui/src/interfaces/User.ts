@@ -8,4 +8,5 @@ export interface User {
     password: string;
     roles: UserRoles[];
     id: string;
+    color?: string;
 }

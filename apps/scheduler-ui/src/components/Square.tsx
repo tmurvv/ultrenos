@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import * as React from "react";
 
+import {Assignment} from "../interfaces";
+
 interface SquareProps {
   assignment?: { projectName: string };
   text?: string;
@@ -12,9 +14,9 @@ const LIGHT_GREY = "lightGrey";
 const DARK_GREY = "darkGrey";
 const BLACK = "black";
 const WHITE = "white";
-const COLOR_030303 = "#030303";
-const COLOR_B3CFE8 = "#b3cfe8";
-const COLOR_F9AE33 = "#f9ae33";
+const COLOR_BLACKISH = "#030303";
+const COLOR_ALICE_BLUE = "#b3cfe8";
+const COLOR_DARK_GOLD = "#f9ae33";
 
 const sx = {
   all: {
@@ -22,8 +24,9 @@ const sx = {
     minHeight: "20px",
     // width: "100px",
     backgroundColor: WHITE,
-    color: COLOR_030303,
-    flex: 1
+    color: COLOR_BLACKISH,
+    flex: 1,
+    p: .5
   },
   weekend: {
     border: `1px solid ${DARK_GREY}`,
@@ -38,25 +41,28 @@ const sx = {
   },
   rowHeader: {
     border: `1px solid ${BLACK}`,
-    backgroundColor: COLOR_B3CFE8,
+    backgroundColor: COLOR_ALICE_BLUE,
     flex: 2
     // width: "200px",
   },
   colHeader: {
     border: `1px solid ${BLACK}`,
-    backgroundColor: COLOR_F9AE33,
+    backgroundColor: COLOR_DARK_GOLD,
   },
   default: {},
 };
 
+
 export const Square: React.FC<SquareProps> = ({
-  assignment: assignment,
+  assignment,
+    color,
   text,
   type,
 }) => {
+  console.log("ass", assignment)
   const projectName = assignment?.projectName;
   return (
-    <Box sx={{ ...sx.all, ...sx[type ?? "default"] }}>
+    <Box sx={{ ...sx.all, ...sx[type ?? "default"], backgroundColor: color }}>
       <Typography>{text || projectName || ""}</Typography>
     </Box>
   );

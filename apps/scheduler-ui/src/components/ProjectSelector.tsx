@@ -3,20 +3,16 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { testData } from "../testData.ts";
+// import { testData } from "../testData.ts";
 import { FormControl } from "@mui/material";
+import { projects } from "../test-data";
 
-type ProjectSelectorProps = {
-  projectName: string;
-  setProjectName: React.Dispatch<React.SetStateAction<string>>;
-};
-
-export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
-  projectName,
-  setProjectName,
-}) => {
+export const ProjectSelector = () => {
+  const [projectName, setProjectName] = React.useState<string | null>(
+    "All Projects",
+  );
   const handleChange = (event: SelectChangeEvent) => {
-    setProjectName(event.target.value as string);
+    setProjectName(event.target.value as string | null);
   };
 
   return (
@@ -25,18 +21,16 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
         <InputLabel id="select-projectName-label">Select Projects</InputLabel>
         <Select
           id="select-projectName"
-          // defaultValue={"all"}
           value={projectName}
           label="Select project"
           onChange={handleChange}
-          fullWidth = {true}
-          mr={1}
+          fullWidth={true}
         >
-          <MenuItem value={"all"}>All projects</MenuItem>
+          <MenuItem value={"All Projects"}>All Projects</MenuItem>
           <MenuItem value={"user"}>My projects</MenuItem>
-          {testData.projectNames.sort().map((project) => (
-            <MenuItem value={project} key={project} width={"100%"}>
-              {project}
+          {projects.sort().map((project) => (
+            <MenuItem value={project.name} key={project.name} width={"100%"}>
+              {project.name}
             </MenuItem>
           ))}
         </Select>

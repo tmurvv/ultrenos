@@ -9,6 +9,7 @@ import { UserRoles } from "./enums/UserRoles";
 // import { testData } from "./testData.ts";
 import { Banner } from "./components/Banner";
 import { NavBar } from "./components/NavBar";
+import {DEFAULT_USER} from "./components/auth/DEFAULT_USER";
 
 const { AUTH, MAIN, DASHBOARD } = ViewContexts;
 const { ADMIN, PROJECT_MANAGER } = UserRoles;
@@ -22,21 +23,11 @@ export const ViewContext = React.createContext<{
   setCurrentView: () => {},
 });
 
-const myUser: User = {
-  firstName: "Tisha",
-  lastName: "Murvihill",
-  password: "password",
-  passwordChangedAt: new Date(),
-  roles: [PROJECT_MANAGER],
-  id: "123",
-  email: "tmurv@shaw.ca",
-};
-
 const userContextValue: {
   user: CurrentUser;
   setUser: React.Dispatch<React.SetStateAction<CurrentUser>>;
 } = {
-  user: myUser,
+  user: DEFAULT_USER,
   setUser: () => {},
 };
 
@@ -52,11 +43,9 @@ function App() {
   const [currentView, setCurrentView] = React.useState<string>(
     ViewContexts.AUTH,
   );
-  // const [user] = React.useState<User> (testData.users[0]);
-  const [user, setUser] = React.useState<User>(myUser);
+  const [user, setUser] = React.useState<User>(DEFAULT_USER);
 
   React.useEffect(() => {
-    console.log("user", user);
     if (!user) {
       setCurrentView(AUTH);
     }
@@ -71,15 +60,15 @@ function App() {
         <Banner />
         <NavBar />
         <CssBaseline />
-        <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
+        <Box display={"flex"} flexDirection={"column"} alignItems={"center"} mt={2}>
           {/*<Box*/}
           {/*  component={"img"}*/}
           {/*  alt={"hammering hammer"}*/}
           {/*  src={"/img/hammer.gif"}*/}
           {/*  sx={{ width: "80px" }}*/}
           {/*/>*/}
-          <Typography variant={"h4"}>Under Construction</Typography>
-          <Typography variant={"h6"}>Not Yet Functional</Typography>
+          <Typography variant={"h4"}>{currentView==="main"?"Weekly View" : currentView}</Typography>
+          <Typography variant={"h6"}>Under Construction</Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           {currentView === AUTH && <AuthView />}

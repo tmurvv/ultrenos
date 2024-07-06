@@ -22,7 +22,7 @@ export const projects = [
         address: '789 Industrial Way, Calgary, AB',
         lat: 51.0789,
         long: -114.2345,
-        projectManager: 'Ethan Nguyen',
+        projectManager: 'Ketema Mulgeta',
         startDate: '2023-03-01',
         notes: 'Warehouse construction'
     },
@@ -31,7 +31,7 @@ export const projects = [
         address: '101 University Dr, Calgary, AB',
         lat: 51.0678,
         long: -114.1234,
-        projectManager: 'Samantha Singh',
+        projectManager: 'Ketema Mulgeta',
         startDate: '2023-02-01',
         notes: 'New science building'
     },
@@ -49,7 +49,7 @@ export const projects = [
         address: '890 Medical Ave, Calgary, AB',
         lat: 51.0234,
         long: -114.1678,
-        projectManager: 'Michael Lam',
+        projectManager: 'Emily Johnson',
         startDate: '2023-06-01',
         notes: 'Renovating patient wing'
     },
@@ -58,7 +58,7 @@ export const projects = [
         address: '234 River Rd, Calgary, AB',
         lat: 51.0567,
         long: -114.0345,
-        projectManager: 'Aisha Khan',
+        projectManager: 'Michael Nguyen',
         startDate: '2023-04-01',
         notes: 'New bridge over the river'
     },
@@ -67,7 +67,7 @@ export const projects = [
         address: '678 Education Way, Calgary, AB',
         lat: 51.1234,
         long: -114.2345,
-        projectManager: 'Olivia Wilson',
+        projectManager: 'Emma Roberts',
         startDate: '2023-03-15',
         notes: 'Renovating classrooms and gym'
     }
