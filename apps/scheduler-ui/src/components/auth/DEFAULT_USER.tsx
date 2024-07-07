@@ -1,8 +1,8 @@
 import {UserRoles} from '../../enums/UserRoles';
 
 export const DEFAULT_USER = {
-    firstName: "Demo User",
-    lastName: "UltRenos",
+    firstName: "Demo",
+    lastName: "User",
     password: "password",
     passwordChangedAt: new Date(),
     roles: [UserRoles.PROJECT_MANAGER],

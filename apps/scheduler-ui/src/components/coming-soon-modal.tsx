@@ -1,5 +1,5 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
-import {colorScheme} from "../constants/colors";
+import { colorScheme } from "../constants/colors";
 
 const style = {
   position: "absolute" as "absolute",
@@ -30,7 +30,7 @@ export const ComingSoonModal = ({ open, setOpen }) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          border: `9px double ${colorScheme.blue}`,
+          border: `4px double ${colorScheme.veryDarkBlue}`,
         }}
       >
         <Box
@@ -56,7 +56,19 @@ export const ComingSoonModal = ({ open, setOpen }) => {
         >
           <Typography>Coming Soon !!</Typography>
           <Box m={2}>
-            <Button onClick={() => setOpen(false)} variant={"contained"} sx={{backgroundColor: colorScheme.blue}}>
+            <Button
+              onClick={() => setOpen(false)}
+              variant={"contained"}
+              sx={{
+                backgroundColor: colorScheme.veryDarkBlue,
+                "&:hover": {
+                  backgroundColor: colorScheme.teal,
+                },
+                "&:active": {
+                  backgroundColor: colorScheme.teal,
+                },
+              }}
+            >
               OK
             </Button>
           </Box>

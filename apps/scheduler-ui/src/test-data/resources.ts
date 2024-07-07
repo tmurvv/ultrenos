@@ -63,9 +63,9 @@ export const resources: User[] = [
     },
     {
         passwordChangedAt: new Date('2023-07-01T09:00:00Z'),
-        firstName: 'Ketema',
-        lastName: 'Mulgeta',
-        email: 'ketema.mulgeta@example.com',
+        firstName: 'Demo',
+        lastName: 'User',
+        email: 'demo.user@example.com',
         password: 'securePassword789',
         roles: [UserRoles.PROJECT_MANAGER],
         id: '789a0bcb-cd12-3456-e789-012345678901',

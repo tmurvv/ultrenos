@@ -25,7 +25,7 @@ export const projects = [
         address: '789 Industrial Way, Calgary, AB',
         lat: 51.0789,
         long: -114.2345,
-        projectManager: 'Ketema Mulgeta',
+        projectManager: 'Demo User',
         startDate: '2023-03-01',
         notes: 'Warehouse construction'
     },
@@ -35,7 +35,7 @@ export const projects = [
         address: '101 University Dr, Calgary, AB',
         lat: 51.0678,
         long: -114.1234,
-        projectManager: 'Ketema Mulgeta',
+        projectManager: 'Demo User',
         startDate: '2023-02-01',
         notes: 'New science building'
     },

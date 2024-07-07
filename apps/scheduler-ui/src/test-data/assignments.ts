@@ -5,7 +5,7 @@ import {addDays} from "date-fns";
 export const assignments: Assignment[] = [
   {
     projectName: projects[0].name,
-    date: addDays(new Date(), 0).toISOString(),
+    date: addDays(new Date(), -6).toISOString(),
     allDay: true,
     task: "Framing",
     projectManagerId: "Emily Johnson",
@@ -15,7 +15,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[1].name,
-    date: addDays(new Date(), 1).toISOString(),
+    date: addDays(new Date(), -5).toISOString(),
     allDay: true,
     task: "Plumbing",
     projectManagerId: "Michael Nguyen",
@@ -25,7 +25,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[2].name,
-    date: addDays(new Date(), 1).toISOString(),
+    date: addDays(new Date(), -4).toISOString(),
     allDay: true,
     task: "Electrical",
     projectManagerId: "Demo User",
@@ -35,7 +35,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[2].name,
-    date: addDays(new Date(), 2).toISOString(),
+    date: addDays(new Date(), -4).toISOString(),
     allDay: true,
     task: "Electrical",
     projectManagerId: "Demo User",
@@ -45,7 +45,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[2].name,
-    date: addDays(new Date(), 3).toISOString(),
+    date: addDays(new Date(), -3).toISOString(),
     allDay: true,
     task: "Electrical",
     projectManagerId: "Demo User",
@@ -55,7 +55,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[3].name,
-    date: addDays(new Date(), 3).toISOString(),
+    date: addDays(new Date(), -3).toISOString(),
     allDay: true,
     task: "Landscaping",
     projectManagerId: "Demo User",
@@ -65,7 +65,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[4].name,
-    date: addDays(new Date(), 3).toISOString(),
+    date: addDays(new Date(), -3).toISOString(),
     allDay: true,
     task: "HVAC",
     projectManagerId: "Emma Roberts",
@@ -75,7 +75,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[4].name,
-    date: addDays(new Date(), 4).toISOString(),
+    date: addDays(new Date(), -2).toISOString(),
     allDay: true,
     task: "HVAC",
     projectManagerId: "Emma Roberts",
@@ -85,7 +85,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[5].name,
-    date: addDays(new Date(), 5).toISOString(),
+    date: addDays(new Date(), -1).toISOString(),
     allDay: true,
     task: "Drywall",
     projectManagerId: "Emily Johnson",
@@ -95,7 +95,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[6].name,
-    date: addDays(new Date(), 6).toISOString(),
+    date: addDays(new Date(), 0).toISOString(),
     allDay: true,
     task: "Concrete",
     projectManagerId: "Michael Nguyen",
@@ -105,7 +105,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[7].name,
-    date: addDays(new Date(), 7).toISOString(),
+    date: addDays(new Date(), 1).toISOString(),
     allDay: true,
     task: "Roofing",
     projectManagerId: "Emma Roberts",
@@ -115,7 +115,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[0].name,
-    date: addDays(new Date(), 7).toISOString(),
+    date: addDays(new Date(), 1).toISOString(),
     allDay: true,
     task: "Masonry",
     projectManagerId: "Emily Johnson",
@@ -125,7 +125,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[1].name,
-    date: addDays(new Date(), 16).toISOString(),
+    date: addDays(new Date(), 10).toISOString(),
     allDay: true,
     task: "Flooring",
     projectManagerId: "Michael Nguyen",
@@ -135,7 +135,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[2].name,
-    date: addDays(new Date(), 10).toISOString(),
+    date: addDays(new Date(), 4).toISOString(),
     allDay: true,
     task: "Insulation",
     projectManagerId: "Demo User",
@@ -145,7 +145,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[3].name,
-    date: addDays(new Date(), 10).toISOString(),
+    date: addDays(new Date(), 4).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Demo User",
@@ -155,7 +155,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[3].name,
-    date: addDays(new Date(), 11).toISOString(),
+    date: addDays(new Date(), 5).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Demo User",
@@ -165,7 +165,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[3].name,
-    date: addDays(new Date(), 12).toISOString(),
+    date: addDays(new Date(), 6).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Demo User",
@@ -175,7 +175,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[4].name,
-    date: addDays(new Date(), 12).toISOString(),
+    date: addDays(new Date(), 6).toISOString(),
     allDay: true,
     task: "Carpentry",
     projectManagerId: "Emma Roberts",
@@ -185,7 +185,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[5].name,
-    date: addDays(new Date(), 13).toISOString(),
+    date: addDays(new Date(), 7).toISOString(),
     allDay: true,
     task: "Plumbing",
     projectManagerId: "Emily Johnson",
@@ -195,7 +195,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[6].name,
-    date: addDays(new Date(), 14).toISOString(),
+    date: addDays(new Date(), 7).toISOString(),
     allDay: true,
     task: "Electrical",
     projectManagerId: "Emma Roberts",
@@ -205,7 +205,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[7].name,
-    date: addDays(new Date(), 15).toISOString(),
+    date: addDays(new Date(), 8).toISOString(),
     allDay: true,
     task: "Demolition",
     projectManagerId: "Emma Roberts",
@@ -215,7 +215,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[0].name,
-    date: addDays(new Date(), 17).toISOString(),
+    date: addDays(new Date(), 11).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Emily Johnson",
@@ -225,7 +225,7 @@ export const assignments: Assignment[] = [
   },
   {
     projectName: projects[7].name,
-    date: addDays(new Date(), 17).toISOString(),
+    date: addDays(new Date(), 11).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Emma Roberts",
@@ -235,7 +235,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[7].name,
-    date: addDays(new Date(), 1).toISOString(),
+    date: addDays(new Date(), -5).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Emma Roberts",
@@ -245,7 +245,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[7].name,
-    date: addDays(new Date(), 2).toISOString(),
+    date: addDays(new Date(), -4).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Emma Roberts",
@@ -255,7 +255,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[7].name,
-    date: addDays(new Date(), 4).toISOString(),
+    date: addDays(new Date(), -2).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Emma Roberts",
@@ -265,7 +265,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[1].name,
-    date: addDays(new Date(), 8).toISOString(),
+    date: addDays(new Date(), 2).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Michael Nguyen",
@@ -275,7 +275,7 @@ export const assignments: Assignment[] = [
   },
 {
     projectName: projects[1].name,
-    date: addDays(new Date(), 9).toISOString(),
+    date: addDays(new Date(), 3).toISOString(),
     allDay: true,
     task: "Painting",
     projectManagerId: "Michael Nguyen",

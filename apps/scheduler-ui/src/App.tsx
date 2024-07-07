@@ -66,16 +66,6 @@ function App() {
         <Banner />
         <NavBar />
         <CssBaseline />
-        {/*<Box display={"flex"} flexDirection={"column"} alignItems={"center"} mt={2}>*/}
-          {/*<Box*/}
-          {/*  component={"img"}*/}
-          {/*  alt={"hammering hammer"}*/}
-          {/*  src={"/img/hammer.gif"}*/}
-          {/*  sx={{ width: "80px" }}*/}
-          {/*/>*/}
-        {/*  <Typography variant={"h4"}>{currentView==="main"?"Weekly View" : currentView}</Typography>*/}
-        {/*  <Typography variant={"h6"}>Under Construction</Typography>*/}
-        {/*</Box>*/}
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           {currentView === AUTH && <AuthView />}
           {currentView === LOGIN && <Login />}

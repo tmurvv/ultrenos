@@ -9,6 +9,7 @@ import { ProjectManagerColors } from "./ProjectManagerColors";
 import { projects } from "../test-data";
 import { WeekNavigator } from "./WeekNavigator";
 import { startOfWeek } from "date-fns";
+import { ActionBar } from "./ActionBar";
 
 const resourceSorted = resources.sort((a, b) =>
   a.lastName.localeCompare(b.lastName),
@@ -58,10 +59,9 @@ export const MainView = () => {
         </Grid>
       </Grid>
       <Grid item xs={10.5} width="100%">
-        <WeekNavigator
+        <ActionBar
           currentWeekStart={currentWeekStart}
           setCurrentWeekStart={setCurrentWeekStart}
-          onWeekChange={(mondayDate) => console.log("cheange")}
         />
         <MainViewHeaderRow />
         {resourceNames.map((resource) => (

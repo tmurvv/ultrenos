@@ -20,7 +20,8 @@ import {
   Typography,
 } from "@mui/material";
 import { DEFAULT_USER } from "./DEFAULT_USER";
-import {ComingSoonModal} from "../coming-soon-modal";
+import { ComingSoonModal } from "../coming-soon-modal";
+import { colorScheme } from "../../constants/colors";
 
 const style = {
   position: "absolute" as "absolute",
@@ -158,6 +159,8 @@ export const Login = ({ setPage }) => {
               width: "fit-content",
               fontStyle: "italic",
               fontSize: "16px",
+              color: colorScheme.veryDarkBlue,
+                marginTop: "20px",
             }}
             onClick={() => setOpen(true)}
           >
@@ -218,6 +221,7 @@ export const Login = ({ setPage }) => {
                 <Button
                   type="button"
                   variant="contained"
+                  sx={{ backgroundColor: colorScheme.veryDarkBlue }}
                   onClick={handleSubmit}
                 >
                   Submit
@@ -234,6 +238,7 @@ export const Login = ({ setPage }) => {
                     fontStyle: "italic",
                     fontSize: "16px",
                     marginTop: "15px",
+                    color: colorScheme.veryDarkBlue,
                   }}
                   onClick={() => setOpen(true)}
                 >
@@ -243,7 +248,7 @@ export const Login = ({ setPage }) => {
             </>
           </FormControl>
         </Box>
-        <ComingSoonModal open={open} setOpen={setOpen}/>
+        <ComingSoonModal open={open} setOpen={setOpen} />
       </Box>
     </>
   );

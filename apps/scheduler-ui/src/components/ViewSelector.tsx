@@ -33,7 +33,7 @@ export const ViewSelector: React.FC<ViewSelectorProps> = ({
 
   return (
     <>
-      <Accordion m={2} sx={{ width: "100%" }}>
+      <Accordion m={2} sx={{ width: "100%" }} defaultExpanded>
         <AccordionSummary>Select View</AccordionSummary>
         <AccordionDetails>
           {/*<Box*/}

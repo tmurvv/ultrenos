@@ -11,7 +11,7 @@ import {Accordion, AccordionDetails, AccordionSummary} from "@mui/joy";
 
 export const ProjectSelector = ({checkedProjects, setCheckedProjects}) => {
   return (
-    <Accordion elevation={0} sx={{width: "100%"}}>
+    <Accordion elevation={0} sx={{width: "100%"}} defaultExpanded>
       <AccordionSummary>Select Projects</AccordionSummary>
       <AccordionDetails>
         <CheckBoxList

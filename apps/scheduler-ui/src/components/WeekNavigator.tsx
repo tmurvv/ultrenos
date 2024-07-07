@@ -25,7 +25,7 @@ export const WeekNavigator: React.FC<WeekNavigatorProps> = ({ currentWeekStart, 
   const formattedWeekStart = format(currentWeekStart, 'MMMM dd, yyyy');
 
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
+    <Box display="flex" alignItems="center" justifyContent="left">
       <IconButton onClick={handlePrevWeek}>
         <ArrowBackIosIcon />
       </IconButton>
