@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, CssBaseline, Typography } from "@mui/material";
 import { MainView } from "./components/MainView";
 import { AuthView } from "./components/auth/AuthView";
+import { Login } from "./components/auth/Login";
 import { Dashboard } from "./components/Dashboard";
 import { ViewContexts } from "./enums/ViewContexts";
 import { User } from "./interfaces/User";
@@ -11,8 +12,9 @@ import { Banner } from "./components/Banner";
 import { NavBar } from "./components/NavBar";
 import {DEFAULT_USER} from "./components/auth/DEFAULT_USER";
 
-const { AUTH, MAIN, DASHBOARD } = ViewContexts;
+const { AUTH, LOGIN, MAIN, DASHBOARD } = ViewContexts;
 const { ADMIN, PROJECT_MANAGER } = UserRoles;
+
 type CurrentUser = User | undefined;
 
 export const ViewContext = React.createContext<{
@@ -27,7 +29,7 @@ const userContextValue: {
   user: CurrentUser;
   setUser: React.Dispatch<React.SetStateAction<CurrentUser>>;
 } = {
-  user: DEFAULT_USER,
+  user: undefined,
   setUser: () => {},
 };
 
@@ -39,15 +41,19 @@ export const UserContext = React.createContext<{
 const sx = {
   body: { margin: 0 },
 };
+
 function App() {
+  // const {user, setUser} = React.useContext(UserContext);
   const [currentView, setCurrentView] = React.useState<string>(
     ViewContexts.AUTH,
   );
-  const [user, setUser] = React.useState<User>(DEFAULT_USER);
 
+  const [user, setUser] = React.useState<User>();
+
+  console.log('user', user);
   React.useEffect(() => {
     if (!user) {
-      setCurrentView(AUTH);
+      setCurrentView(LOGIN);
     }
     if (user?.roles?.includes(UserRoles.ADMIN)) {
       setCurrentView(DASHBOARD);
@@ -60,18 +66,19 @@ function App() {
         <Banner />
         <NavBar />
         <CssBaseline />
-        <Box display={"flex"} flexDirection={"column"} alignItems={"center"} mt={2}>
+        {/*<Box display={"flex"} flexDirection={"column"} alignItems={"center"} mt={2}>*/}
           {/*<Box*/}
           {/*  component={"img"}*/}
           {/*  alt={"hammering hammer"}*/}
           {/*  src={"/img/hammer.gif"}*/}
           {/*  sx={{ width: "80px" }}*/}
           {/*/>*/}
-          <Typography variant={"h4"}>{currentView==="main"?"Weekly View" : currentView}</Typography>
-          <Typography variant={"h6"}>Under Construction</Typography>
-        </Box>
+        {/*  <Typography variant={"h4"}>{currentView==="main"?"Weekly View" : currentView}</Typography>*/}
+        {/*  <Typography variant={"h6"}>Under Construction</Typography>*/}
+        {/*</Box>*/}
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           {currentView === AUTH && <AuthView />}
+          {currentView === LOGIN && <Login />}
           {currentView === MAIN && <MainView />}
           {currentView === DASHBOARD && <Dashboard />}
         </Box>

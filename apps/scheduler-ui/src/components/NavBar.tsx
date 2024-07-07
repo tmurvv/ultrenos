@@ -5,8 +5,8 @@ import { Box, List } from "@mui/material";
 import { UserContext, ViewContext } from "../App";
 import { ViewContexts } from "../enums/ViewContexts";
 import { UserRoles } from "../enums/UserRoles";
-import {DEFAULT_USER} from "./auth/DEFAULT_USER";
-import {useEffect} from "react";
+import { DEFAULT_USER } from "./auth/DEFAULT_USER";
+import { useEffect } from "react";
 //internal
 // import {PageContext} from '../contexts/PageContext.js';
 // import {UserContext} from '../contexts/UserContext.js';
@@ -14,7 +14,7 @@ import {useEffect} from "react";
 // import {USER_INIT} from '../constants/inits';
 // import NavBarCss from '../styles/NavBar.css.js'
 
-const { AUTH, MAIN, DASHBOARD } = ViewContexts;
+const { AUTH, DASHBOARD, LOGIN, MAIN } = ViewContexts;
 const { ADMIN } = UserRoles;
 
 const sx = {
@@ -87,170 +87,159 @@ export const NavBar = () => {
   // // set mobile environment
   // useEffect(()=>handleResize());
   // // reset window width on window resize
-  useEffect(() => {
-    if (!user) {
-      setUser(DEFAULT_USER);
-    }
-      // window.addEventListener('resize', handleResize);
-      // return () => { window.removeEventListener('resize', handleResize) }
-  }, [user]);
+  // useEffect(() => {
+
+  // window.addEventListener('resize', handleResize);
+  // return () => { window.removeEventListener('resize', handleResize) }
+  // }, []);
   return (
     <>
       <Box sx={sx.body.navBarOuter}>
-        {/* show mobile menu icon */}
-        {/*{mobile&&!open?*/}
-        {/*    <div sx={sx.'hamburgerMenu' onClick={(e) => setOpen(true)}>*/}
-        {/*        <img id='hamburger' src='/img/hamburger.png' alt="open mobile menu icon"/>*/}
-        {/*    </div>:''*/}
-        {/*}*/}
-        {/*/!* if not mobile or if mobile menu open. show the menu *!/*/}
-        {/*{(!mobile||open)&&*/}
-        <>
-          <Router>
-            <nav style={{ height: "100%" }}>
-              {open && <p>{open}</p>}
-              <List sx={sx.body.navLinks}>
-                {user?.email && (
-                  <li style={{ fontSize: "16px" }}>
-                    {user.email ? (
-                      <Link
-                        to="/"
-                        onClick={() => setCurrentView(ViewContexts.MAIN)}
-                      >
-                        Welcome {user?.firstName}
-                      </Link>
-                    ) : (
-                      <Link
-                        to="/"
-                        onClick={() => {
-                          setOpen(false);
-                          setCurrentView(ViewContexts.AUTH);
-                        }}
-                      >
-                        Login
-                      </Link>
-                    )}
-                  </li>
-                )}
-                {user?.roles?.includes(ADMIN) && (
-                  <li>
+        <Router>
+          <nav style={{ height: "100%" }}>
+            {open && <p>{open}</p>}
+            <List sx={sx.body.navLinks}>
+              {user?.email && (
+                <li style={{ fontSize: "16px" }}>
+                  {user.email ? (
                     <Link
                       to="/"
-                      onClick={() => {
-                        setOpen(false);
-                        setCurrentView(DASHBOARD);
-                      }}
+                      onClick={() => setCurrentView(ViewContexts.MAIN)}
                     >
-                      Admin
+                      Welcome {user?.firstName}
                     </Link>
-                  </li>
-                )}
-                <li>
-                  <Link
-                    to="/"
-                    onClick={() => {
-                      if (user?.email) {
-                        setOpen(false);
-                        setCurrentView(MAIN);
-                      } else {
-                        alert("Please Login to enter Timesheets.");
-                        setCurrentView(AUTH);
-                        setOpen(false);
-                      }
-                    }}
-                  >
-                    Week View
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/"
-                    onClick={() => {
-                      if (user?.email) {
-                        setOpen(false);
-                        setCurrentView(MAIN);
-                      } else {
-                        alert("Please Login to view Timesheets.");
-                        setCurrentView(AUTH);
-                        setOpen(false);
-                      }
-                    }}
-                  >
-                    Month View
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/view-by-resource"
-                    onClick={() => {
-                      if (user?.email) {
-                        setOpen(false);
-                        setCurrentView(MAIN);
-                      } else {
-                        alert("Please Login to view Timesheets.");
-                        setCurrentView(AUTH);
-                        setOpen(false);
-                      }
-                    }}
-                    style={{color: "black !important"}}
-                  >
-                    View By Resource
-                  </Link>
-                </li>
-                {!user?.email && (
-                  <li style={{ fontSize: "16px" }}>
+                  ) : (
                     <Link
-                      to="/"
+                      to="/Auth/Login"
                       onClick={() => {
                         setOpen(false);
-                        setCurrentView(AUTH);
+                        setCurrentView(ViewContexts.AUTH);
                       }}
                     >
                       Login
                     </Link>
-                  </li>
-                )}
-                {user?.email && (
-                  <li>
-                    <Link
-                      to="/"
-                      onClick={() => {
-                        setCurrentView("profile");
-                        setOpen(false);
-                      }}
-                    >
-                      Profile
-                    </Link>
-                  </li>
-                )}
-                <li>
-                  {user?.email ? (
-                    <Link
-                      to="/"
-                      onClick={() => {
-                        setUser(DEFAULT_USER);
-                        setCurrentView(AUTH);
-                        setOpen(false);
-                      }}
-                    >
-                      Logout
-                    </Link>
-                  ) : (
-                    <Link
-                      to="/"
-                      onClick={() => {
-                        setOpen(false);
-                        setCurrentView(AUTH);
-                      }}
-                    >
-                      Signup
-                    </Link>
                   )}
                 </li>
-              </List>
-            </nav>
-          </Router>
-        </>
+              )}
+              {user?.roles?.includes(ADMIN) && (
+                <li>
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      setOpen(false);
+                      setCurrentView(DASHBOARD);
+                    }}
+                  >
+                    Admin
+                  </Link>
+                </li>
+              )}
+              <li>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    if (user?.email) {
+                      setOpen(false);
+                      setCurrentView(MAIN);
+                    } else {
+                      alert("Please Login to enter Timesheets.");
+                      setCurrentView(AUTH);
+                      setOpen(false);
+                    }
+                  }}
+                >
+                  Week View
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    if (user?.email) {
+                      setOpen(false);
+                      setCurrentView(MAIN);
+                    } else {
+                      alert("Please Login to view Timesheets.");
+                      setCurrentView(AUTH);
+                      setOpen(false);
+                    }
+                  }}
+                >
+                  Month View
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/view-by-resource"
+                  onClick={() => {
+                    if (user?.email) {
+                      setOpen(false);
+                      setCurrentView(MAIN);
+                    } else {
+                      alert("Please Login to view Timesheets.");
+                      setCurrentView(AUTH);
+                      setOpen(false);
+                    }
+                  }}
+                  style={{ color: "black !important" }}
+                >
+                  View By Resource
+                </Link>
+              </li>
+              {!user?.email && (
+                <li style={{ fontSize: "16px" }}>
+                  <Link
+                    to="Auth/Login"
+                    onClick={() => {
+                      setOpen(false);
+                      // setCurrentView(LOGIN);
+                    }}
+                  >
+                    Login
+                  </Link>
+                </li>
+              )}
+              {user?.email && (
+                <li>
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      setCurrentView("profile");
+                      setOpen(false);
+                    }}
+                  >
+                    Profile
+                  </Link>
+                </li>
+              )}
+              <li>
+                {user?.email ? (
+                  <Link
+                    to="/Auth/Login"
+                    onClick={() => {
+                      setUser(null);
+                      setCurrentView(LOGIN);
+                      setOpen(false);
+                    }}
+                  >
+                    Logout
+                  </Link>
+                ) : (
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      setOpen(false);
+                      setCurrentView(AUTH);
+                    }}
+                  >
+                    Signup
+                  </Link>
+                )}
+              </li>
+            </List>
+          </nav>
+        </Router>
+
         {/*}*/}
       </Box>
     </>
