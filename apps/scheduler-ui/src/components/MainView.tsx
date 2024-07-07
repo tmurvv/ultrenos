@@ -3,9 +3,10 @@ import { MainViewHeaderRow } from "./MainViewHeaderRow";
 import { resources } from "../test-data";
 import { ProjectSelector } from "./ProjectSelector";
 import { ViewSelector } from "./ViewSelector";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { Grid } from "@mui/material";
 import {ProjectManagerColors} from "./ProjectManagerColors";
+import {projects} from "../test-data";
 
 const resourceSorted = resources.sort((a, b) =>
   a.lastName.localeCompare(b.lastName),
@@ -16,16 +17,27 @@ const resourceNames = resourceSorted.map(
 );
 
 export const MainView = () => {
-  const [projectName, setProjectName] = useState("all");
   const [viewName, setViewName] = useState("weeklyResource");
+  const [checkedProjects, setCheckedProjects] = useState({});
+
+
+    useEffect(() => {
+      const initialCheckedProjects = projects.reduce((acc, project) => {
+          return {...acc, [project.name]: true};
+      }, {});
+// console.log("initialCheckedProjects", initialCheckedProjects);
+      setCheckedProjects(initialCheckedProjects);
+  },[])
+
   return (
     <Grid container spacing={2} m={2} width="100%">
       <Grid item xs={1.5}>
         <Grid container direction="row">
-          <ViewSelector viewName={viewName} setViewName={setViewName} />{" "}
+          <ViewSelector viewName={viewName} setViewName={setViewName} />
+            <p>{checkedProjects["Chen"]?.toString()}</p>
           <ProjectSelector
-            projectName={projectName}
-            setProjectName={setProjectName}
+            checkedProjects={checkedProjects}
+            setCheckedProjects={setCheckedProjects}
           />
             <ProjectManagerColors/>
         </Grid>
@@ -33,7 +45,7 @@ export const MainView = () => {
       <Grid item xs={10.5} width="100%">
         <MainViewHeaderRow />
         {resourceNames.map((resource) => (
-          <Row resource={resource} />
+          <Row resource={resource} checkedProjects={checkedProjects}/>
         ))}
       </Grid>
     </Grid>

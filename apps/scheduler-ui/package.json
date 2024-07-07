@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/joy": "^5.0.0-beta.47",
     "axios": "^1.7.2",
     "react-router-dom": "^6.23.1"
   },
