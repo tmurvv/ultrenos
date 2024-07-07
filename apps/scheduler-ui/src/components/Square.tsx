@@ -52,17 +52,17 @@ const sx = {
   default: {},
 };
 
-export const Square: React.FC<SquareProps> = ({
-  assignment,
-  color,
-  backgroundColor,
-  text,
-  type,
-}) => {
-  const projectName = assignment?.projectName;
+export const Square: React.FC<SquareProps> = ({ entry, type }) => {
   return (
-    <Box sx={{ ...sx.all, ...sx[type ?? "default"], backgroundColor, color }}>
-      <Typography>{text || projectName || ""}</Typography>
+    <Box
+      sx={{
+        ...sx.all,
+        ...sx[type ?? "default"],
+        backgroundColor: entry?.backgroundColor ?? "#fff",
+        color: entry?.color ?? "#000",
+      }}
+    >
+      <Typography>{entry?.text ?? ""}</Typography>
     </Box>
   );
 };

@@ -1,30 +1,65 @@
 import { Box } from "@mui/material";
 import { startCase } from "lodash";
 import * as React from "react";
+import {
+  addDays,
+  isEqual,
+  startOfDay,
+  parseISO,
+  format,
+  startOfWeek,
+} from "date-fns";
 
 import { Assignment } from "../interfaces";
 import { assignments } from "../test-data";
-
-import { Square } from "./Square.js";
 import { getColorByFirstLast as getPMColor } from "../get-color-by-first-last";
 import { getContrastByFirstLast as getContrast } from "../get-contrast-by-first-last";
+
+import { Square } from "./Square.js";
 import { useEffect, useState } from "react";
+
+function areSameDays(date1, date2) {
+  const day1 = startOfDay(parseISO(date1));
+  const day2 = startOfDay(date2);
+
+  // console.log("day1", day1);
+  // console.log("day2", day2);
+
+  return isEqual(day1, day2);
+}
 
 interface RowProps {
   resource: string;
 }
-const pmColors = {
-  "Ketema Mulgeta": "cadetblue",
-  "Emily Johnson": "lavender",
-  "Michael Nguyen": "#bfbf1a",
-  "Emma Roberts": "tomato",
+
+const isSameResource = (resource1, resource2) => {
+  return startCase(resource1) === resource2;
 };
 
-export const Row: React.FC<RowProps> = ({ resource, checkedProjects }) => {
+const getEntry = ({ filteredAssignments, date, resource }) => {
+  for (const assignment of filteredAssignments) {
+    if (
+      areSameDays(assignment?.date, date) &&
+      isSameResource(assignment?.resourceId, resource)
+    ) {
+      return {
+        backgroundColor: getPMColor(assignment?.projectManagerId),
+        color: getContrast(assignment?.projectManagerId),
+        text: assignment?.projectName,
+      };
+    }
+  }
+};
+
+export const Row: React.FC<RowProps> = ({
+  resource,
+  checkedProjects,
+  currentWeekStart,
+}) => {
   const [filteredAssignments, setFilteredAssignments] = useState([]);
 
   const assignmentsByResource: Assignment[] = filteredAssignments.filter(
-    (assignment) => resource === startCase(assignment?.resourceId)
+    (assignment) => resource === startCase(assignment?.resourceId),
   );
 
   useEffect(() => {
@@ -39,70 +74,56 @@ export const Row: React.FC<RowProps> = ({ resource, checkedProjects }) => {
 
   return (
     <Box display={"flex"}>
-      <Square text={resource} type={"rowHeader"} />
+      <Square entry={{ text: resource }} type={"rowHeader"} />
       <Square
-        backgroundColor={
-          getPMColor(assignmentsByResource?.[0]?.projectManagerId) ?? "#fff"
-        }
-        color={
-          getContrast(assignmentsByResource?.[0]?.projectManagerId) ?? "purple"
-        }
-        text={assignmentsByResource?.[0]?.projectName ?? ""}
+        entry={getEntry({
+          date: currentWeekStart,
+          resource,
+          filteredAssignments,
+        })}
       />
       <Square
-        backgroundColor={
-          getPMColor(assignmentsByResource?.[1]?.projectManagerId) ?? "#fff"
-        }
-        color={
-          getContrast(assignmentsByResource?.[1]?.projectManagerId) ?? "purple"
-        }
-        text={assignmentsByResource?.[1]?.projectName ?? ""}
+        entry={getEntry({
+          date: addDays(currentWeekStart, 1),
+          resource,
+          filteredAssignments,
+        })}
       />
       <Square
-        backgroundColor={
-          getPMColor(assignmentsByResource?.[2]?.projectManagerId) ?? "#fff"
-        }
-        color={
-          getContrast(assignmentsByResource?.[2]?.projectManagerId) ?? "purple"
-        }
-        text={assignmentsByResource?.[2]?.projectName ?? ""}
+        entry={getEntry({
+          date: addDays(currentWeekStart, 2),
+          resource,
+          filteredAssignments,
+        })}
       />
       <Square
-        backgroundColor={
-          getPMColor(assignmentsByResource?.[3]?.projectManagerId) ?? "#fff"
-        }
-        color={
-          getContrast(assignmentsByResource?.[3]?.projectManagerId) ?? "purple"
-        }
-        text={assignmentsByResource?.[3]?.projectName ?? ""}
+          entry={getEntry({
+              date: addDays(currentWeekStart, 3),
+              resource,
+              filteredAssignments,
+          })}
       />
       <Square
-        backgroundColor={
-          getPMColor(assignmentsByResource?.[4]?.projectManagerId) ?? "#fff"
-        }
-        color={
-          getContrast(assignmentsByResource?.[4]?.projectManagerId) ?? "purple"
-        }
-        text={assignmentsByResource?.[4]?.projectName ?? ""}
+          entry={getEntry({
+              date: addDays(currentWeekStart, 4),
+              resource,
+              filteredAssignments,
+          })}
       />
       <Square
-        backgroundColor={
-          getPMColor(assignmentsByResource?.[5]?.projectManagerId) ?? "#fff"
-        }
-        color={
-          getContrast(assignmentsByResource?.[5]?.projectManagerId) ?? "purple"
-        }
-        text={assignmentsByResource?.[5]?.projectName ?? ""}
+          entry={getEntry({
+              date: addDays(currentWeekStart, 5),
+              resource,
+              filteredAssignments,
+          })}
         type={"weekend"}
       />
       <Square
-        backgroundColor={
-          getPMColor(assignmentsByResource?.[6]?.projectManagerId) ?? "#fdfafa"
-        }
-        color={
-          getContrast(assignmentsByResource?.[6]?.projectManagerId) ?? "#fff"
-        }
-        text={assignmentsByResource?.[6]?.projectName ?? ""}
+          entry={getEntry({
+              date: addDays(currentWeekStart, 6),
+              resource,
+              filteredAssignments,
+          })}
         type={"weekend"}
       />
     </Box>
