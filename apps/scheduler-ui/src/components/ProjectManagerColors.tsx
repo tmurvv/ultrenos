@@ -19,7 +19,7 @@ export const ProjectManagerColors: React.FC = () => {
   }));
 
   return (
-    <Box mt={4}>
+    <Box>
         <Typography variant="h6" gutterBottom>Project Managers</Typography>
       <Box>
         <Typography variant="h6" gutterBottom></Typography>

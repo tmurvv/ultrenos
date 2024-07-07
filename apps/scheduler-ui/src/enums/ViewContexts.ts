@@ -3,4 +3,8 @@ export enum ViewContexts {
   LOGIN = "login",
   MAIN = "main",
   DASHBOARD = "dashboard",
+  DAY = "day",
+  WEEK = "week",
+  MONTH = "month",
+  RESOURCE = "resource"
 }

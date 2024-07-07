@@ -35,29 +35,33 @@ export const MainView = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentWeekStart(new Date("2024-06-15T08:00:00.000Z"));
+    const monday = startOfWeek(new Date(), { weekStartsOn: 1 });
+    setCurrentWeekStart(monday);
   }, []);
 
   return (
     <Grid container spacing={2} m={2} width="100%">
       <Grid item xs={1.5}>
-        <Grid container direction="row">
-          <ViewSelector viewName={viewName} setViewName={setViewName} />
-          <p>{checkedProjects["Chen"]?.toString()}</p>
-          <ProjectSelector
-            checkedProjects={checkedProjects}
-            setCheckedProjects={setCheckedProjects}
-          />
-          <ProjectManagerColors />
+        <Grid mt={4} container spacing={3} direction="row">
+          <Grid item width={"100%"}>
+            <ViewSelector viewName={viewName} setViewName={setViewName} />
+          </Grid>
+          <Grid item width={"100%"}>
+            <ProjectSelector
+              checkedProjects={checkedProjects}
+              setCheckedProjects={setCheckedProjects}
+            />
+          </Grid>
+          <Grid item width={"100%"}>
+            <ProjectManagerColors />
+          </Grid>
         </Grid>
       </Grid>
       <Grid item xs={10.5} width="100%">
         <WeekNavigator
           currentWeekStart={currentWeekStart}
           setCurrentWeekStart={setCurrentWeekStart}
-          onWeekChange={(mondayDate) =>
-            console.log('cheange')
-          }
+          onWeekChange={(mondayDate) => console.log("cheange")}
         />
         <MainViewHeaderRow />
         {resourceNames.map((resource) => (
