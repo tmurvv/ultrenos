@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
+import {colorScheme} from "../constants/colors";
 
 const sx = {
   mainContainer: {
-    backgroundColor: "#000000",
+    backgroundColor: colorScheme.veryDarkBlue,
     maxHeight: "400px",
     display: "flex",
     justifyContent: "space-evenly",

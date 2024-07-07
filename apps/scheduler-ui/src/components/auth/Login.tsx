@@ -20,6 +20,7 @@ import {
   Typography,
 } from "@mui/material";
 import { DEFAULT_USER } from "./DEFAULT_USER";
+import {ComingSoonModal} from "../coming-soon-modal";
 
 const style = {
   position: "absolute" as "absolute",
@@ -234,7 +235,7 @@ export const Login = ({ setPage }) => {
                     fontSize: "16px",
                     marginTop: "15px",
                   }}
-                  onClick={()=>setOpen(true)}
+                  onClick={() => setOpen(true)}
                 >
                   Change/Forgot Password
                 </Button>
@@ -242,26 +243,8 @@ export const Login = ({ setPage }) => {
             </>
           </FormControl>
         </Box>
-        <Modal open={open} >
-
-            <Box sx={{height: "40%", width: "40%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#ffffff",
-            }}>
-              <Typography>This button not yet functional.</Typography>
-              <Button onClick={() => setOpen(false)} variant={"contained"}>
-                OK
-              </Button>
-            </Box>
-
-        </Modal>
+        <ComingSoonModal open={open} setOpen={setOpen}/>
       </Box>
-      {/*<Modal onClose={() => setOpen(false)} open={open}>*/}
-      {/*  This button not yet functional.*/}
-      {/*</Modal>*/}
     </>
   );
 };

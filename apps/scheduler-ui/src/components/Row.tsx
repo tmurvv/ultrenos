@@ -6,6 +6,8 @@ import { Assignment } from "../interfaces";
 import { assignments } from "../test-data";
 
 import { Square } from "./Square.js";
+import {getColorByFirstLast as getPMColor} from "../get-color-by-first-last";
+import {getContrastByFirstLast as getContrast} from "../get-contrast-by-first-last";
 
 interface RowProps {
   resource: string;
@@ -25,37 +27,45 @@ export const Row: React.FC<RowProps> = ({ resource }) => {
       return resource === startCase(assignment.resourceId);
     },
   );
-  console.log("assignmentsByResource", assignmentsByResource);
+  // console.log("assignmentsByResource", assignmentsByResource);
+    console.log(getContrast())
   return (
     <Box display={"flex"}>
       <Square text={resource} type={"rowHeader"} />
       <Square
-        color={pmColors[assignmentsByResource?.[0]?.projectManagerId] ?? "#fff"}
+        backgroundColor={getPMColor(assignmentsByResource?.[0]?.projectManagerId) ?? "#fff"}
+        color={getContrast(assignmentsByResource?.[0]?.projectManagerId) ?? "purple"}
         text={assignmentsByResource?.[0]?.projectName ?? ""}
       />
       <Square
-        color={pmColors[assignmentsByResource?.[1]?.projectManagerId] ?? "#fff"}
+        backgroundColor={getPMColor(assignmentsByResource?.[1]?.projectManagerId) ?? "#fff"}
+        color={getContrast(assignmentsByResource?.[1]?.projectManagerId) ?? "purple"}
         text={assignmentsByResource?.[1]?.projectName ?? ""}
       />
       <Square
-        color={pmColors[assignmentsByResource?.[2]?.projectManagerId] ?? "#fff"}
+        backgroundColor={getPMColor(assignmentsByResource?.[2]?.projectManagerId) ?? "#fff"}
+        color={getContrast(assignmentsByResource?.[2]?.projectManagerId) ?? "purple"}
         text={assignmentsByResource?.[2]?.projectName ?? ""}
       />
       <Square
-        color={pmColors[assignmentsByResource?.[3]?.projectManagerId] ?? "#fff"}
+        backgroundColor={getPMColor(assignmentsByResource?.[3]?.projectManagerId) ?? "#fff"}
+        color={getContrast(assignmentsByResource?.[3]?.projectManagerId) ?? "purple"}
         text={assignmentsByResource?.[3]?.projectName ?? ""}
       />
       <Square
-        color={pmColors[assignmentsByResource?.[4]?.projectManagerId] ?? "#fff"}
+        backgroundColor={getPMColor(assignmentsByResource?.[4]?.projectManagerId) ?? "#fff"}
+        color={getContrast(assignmentsByResource?.[4]?.projectManagerId) ?? "purple"}
         text={assignmentsByResource?.[4]?.projectName ?? ""}
       />
       <Square
-        color={pmColors[assignmentsByResource?.[5]?.projectManagerId] ?? "#fff"}
+        backgroundColor={getPMColor(assignmentsByResource?.[5]?.projectManagerId) ?? "#fff"}
+        color={getContrast(assignmentsByResource?.[5]?.projectManagerId) ?? "purple"}
         text={assignmentsByResource?.[5]?.projectName ?? ""}
         type={"weekend"}
       />
       <Square
-        color={pmColors[assignmentsByResource?.[6]?.projectManagerId] ?? "#fff"}
+        backgroundColor={getPMColor(assignmentsByResource?.[6]?.projectManagerId) ?? "#fdfafa"}
+        color={getContrast(assignmentsByResource?.[6]?.projectManagerId) ?? "#fff"}
         text={assignmentsByResource?.[6]?.projectName ?? ""}
         type={"weekend"}
       />

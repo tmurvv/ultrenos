@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import * as React from "react";
 
-import {Assignment} from "../interfaces";
+import { Assignment } from "../interfaces";
 
 interface SquareProps {
   assignment?: { projectName: string };
@@ -26,7 +26,7 @@ const sx = {
     backgroundColor: WHITE,
     color: COLOR_BLACKISH,
     flex: 1,
-    p: .5
+    p: 0.5,
   },
   weekend: {
     border: `1px solid ${DARK_GREY}`,
@@ -36,13 +36,13 @@ const sx = {
     border: `1px solid ${DARK_GREY}`,
     backgroundColor: LIGHT_GREY,
     color: BLACK,
-    flex: 2
+    flex: 2,
     // width: "200px",
   },
   rowHeader: {
     border: `1px solid ${BLACK}`,
     backgroundColor: COLOR_ALICE_BLUE,
-    flex: 2
+    flex: 2,
     // width: "200px",
   },
   colHeader: {
@@ -52,17 +52,16 @@ const sx = {
   default: {},
 };
 
-
 export const Square: React.FC<SquareProps> = ({
   assignment,
-    color,
+  color,
+  backgroundColor,
   text,
   type,
 }) => {
-  console.log("ass", assignment)
   const projectName = assignment?.projectName;
   return (
-    <Box sx={{ ...sx.all, ...sx[type ?? "default"], backgroundColor: color }}>
+    <Box sx={{ ...sx.all, ...sx[type ?? "default"], backgroundColor, color }}>
       <Typography>{text || projectName || ""}</Typography>
     </Box>
   );

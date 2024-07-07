@@ -9,4 +9,5 @@ export interface User {
     roles: UserRoles[];
     id: string;
     color?: string;
+    contrast?: string;
 }

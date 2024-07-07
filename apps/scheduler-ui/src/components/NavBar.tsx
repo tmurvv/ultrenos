@@ -1,12 +1,14 @@
 // packages
 import * as React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Box, List } from "@mui/material";
+import {Box, List, Modal, Typography} from "@mui/material";
 import { UserContext, ViewContext } from "../App";
 import { ViewContexts } from "../enums/ViewContexts";
 import { UserRoles } from "../enums/UserRoles";
+import {colorScheme} from "../constants/colors";
 import { DEFAULT_USER } from "./auth/DEFAULT_USER";
 import { useEffect } from "react";
+import {ComingSoonModal} from "./coming-soon-modal";
 //internal
 // import {PageContext} from '../contexts/PageContext.js';
 // import {UserContext} from '../contexts/UserContext.js';
@@ -23,7 +25,7 @@ const sx = {
     navBarOuter: {
       background: "#f9bf1e",
       "background-image":
-        "linear-gradient(340deg, #f9bf1e 50%, #fffbb5 58%, #ffe58a 74%, #f9bf1e 87%)",
+        `linear-gradient(340deg, ${colorScheme.yellow} 50%, ${colorScheme.almostWhite}, ${colorScheme.yellow} 74%, ${colorScheme.yellow} 87%)`,
       height: "40px",
       "border-bottom": "1px solid grey",
     },
@@ -37,7 +39,7 @@ const sx = {
       "justify-content": "space-evenly",
       "align-items": "center",
       position: "relative",
-      color: "black !important",
+      color: "white",
     },
     ul: {
       "list-style": "none",
@@ -47,18 +49,25 @@ const sx = {
     },
     ".navLinks a": {
       "font-size": "16px",
+      "color": "#fff !important"
     },
     a: {
       "font-family": "'avenir'",
       "font-size": "16px",
       "text-decoration": "none",
-      color: "#000000",
+      color: "#fff !important",
       opacity: "1",
       flex: "2",
       "text-align": "center",
     },
     "a:hover": {
-      opacity: "1",
+      color: "olive !important",
+    },
+    "a:active": {
+      color: "olive !important",
+    },
+    "a:visited": {
+      color: "olive !important",
     },
     "hamburgerMenu img": {
       height: "35px",
@@ -102,18 +111,19 @@ export const NavBar = () => {
               {user?.email && (
                 <li style={{ fontSize: "16px" }}>
                   {user.email ? (
-                    <Link
-                      to="/"
-                      onClick={() => setCurrentView(ViewContexts.MAIN)}
+                      <Box sx={{color: colorScheme.text}}>
+                    <Typography
+
                     >
                       Welcome {user?.firstName}
-                    </Link>
+                    </Typography>
+                      </Box>
                   ) : (
                     <Link
-                      to="/Auth/Login"
+                      to="./Auth/Login"
                       onClick={() => {
                         setOpen(false);
-                        setCurrentView(ViewContexts.AUTH);
+                        // setCurrentView(ViewContexts.AUTH);
                       }}
                     >
                       Login
@@ -126,8 +136,8 @@ export const NavBar = () => {
                   <Link
                     to="/"
                     onClick={() => {
-                      setOpen(false);
-                      setCurrentView(DASHBOARD);
+                      setOpen(true);
+                      // setCurrentView(DASHBOARD);
                     }}
                   >
                     Admin
@@ -138,15 +148,15 @@ export const NavBar = () => {
                 <Link
                   to="/"
                   onClick={() => {
-                    if (user?.email) {
-                      setOpen(false);
+                    // if (user?.email) {
+                    //   setOpen(false);
+                    //   setCurrentView(MAIN);
+                    // } else {
+                    //   alert("Please Login to enter Timesheets.");
                       setCurrentView(MAIN);
-                    } else {
-                      alert("Please Login to enter Timesheets.");
-                      setCurrentView(AUTH);
-                      setOpen(false);
+                      // setOpen(false);
                     }
-                  }}
+                  }
                 >
                   Week View
                 </Link>
@@ -155,14 +165,14 @@ export const NavBar = () => {
                 <Link
                   to="/"
                   onClick={() => {
-                    if (user?.email) {
-                      setOpen(false);
-                      setCurrentView(MAIN);
-                    } else {
-                      alert("Please Login to view Timesheets.");
-                      setCurrentView(AUTH);
-                      setOpen(false);
-                    }
+                    // if (user?.email) {
+                    //   setOpen(false);
+                    //   setCurrentView(MAIN);
+                    // } else {
+                    //   alert("Please Login to view Timesheets.");
+                    //   setCurrentView(AUTH);
+                      setOpen(true);
+                    // }
                   }}
                 >
                   Month View
@@ -172,14 +182,13 @@ export const NavBar = () => {
                 <Link
                   to="/view-by-resource"
                   onClick={() => {
-                    if (user?.email) {
-                      setOpen(false);
-                      setCurrentView(MAIN);
-                    } else {
-                      alert("Please Login to view Timesheets.");
-                      setCurrentView(AUTH);
-                      setOpen(false);
-                    }
+                    // if (user?.email) {
+                    //   setOpen(false);
+                    //   setCurrentView(MAIN);
+                    // } else {
+                      // setCurrentView(AUTH);
+                      setOpen(true);
+                    // }
                   }}
                   style={{ color: "black !important" }}
                 >
@@ -189,7 +198,7 @@ export const NavBar = () => {
               {!user?.email && (
                 <li style={{ fontSize: "16px" }}>
                   <Link
-                    to="Auth/Login"
+                    to="./Auth/Login"
                     onClick={() => {
                       setOpen(false);
                       // setCurrentView(LOGIN);
@@ -204,8 +213,8 @@ export const NavBar = () => {
                   <Link
                     to="/"
                     onClick={() => {
-                      setCurrentView("profile");
-                      setOpen(false);
+                      // setCurrentView("profile");
+                      setOpen(true);
                     }}
                   >
                     Profile
@@ -228,8 +237,8 @@ export const NavBar = () => {
                   <Link
                     to="/"
                     onClick={() => {
-                      setOpen(false);
-                      setCurrentView(AUTH);
+                      setOpen(true);
+                      // setCurrentView(AUTH);
                     }}
                   >
                     Signup
@@ -239,7 +248,8 @@ export const NavBar = () => {
             </List>
           </nav>
         </Router>
-
+{/*<Modal open={open} onClose={()=> setOpen(false)}>Coming Soon !!</Modal>*/}
+        <ComingSoonModal open={open} setOpen={setOpen}/>
         {/*}*/}
       </Box>
     </>

@@ -1,5 +1,6 @@
 import { UserRoles } from '../enums/UserRoles';
 import {User} from '../interfaces/User';
+import {colorScheme} from "../constants/colors";
 
 export const resources: User[] = [
     {
@@ -46,7 +47,8 @@ export const resources: User[] = [
         password: 'securePassword123',
         roles: [UserRoles.PROJECT_MANAGER],
         id: '123e4567-e89b-12d3-a456-426614174000',
-        color: "tomato"
+        color: colorScheme.tomato,
+        contrast: "#fff"
     },
     {
         passwordChangedAt: new Date('2023-01-20T13:45:00Z'),
@@ -56,17 +58,19 @@ export const resources: User[] = [
         password: 'password456abc',
         roles: [UserRoles.PROJECT_MANAGER],
         id: '456e7890-b12c-3d45-a678-901234567890',
-        color: "#bfbf1a"
+        color: colorScheme.yellow,
+        contrast: "#170101"
     },
     {
         passwordChangedAt: new Date('2023-07-01T09:00:00Z'),
         firstName: 'Ketema',
         lastName: 'Mulgeta',
-        email: 'ethan.nguyen@example.com',
+        email: 'ketema.mulgeta@example.com',
         password: 'securePassword789',
         roles: [UserRoles.PROJECT_MANAGER],
         id: '789a0bcb-cd12-3456-e789-012345678901',
-        color: "cadetblue"
+        color: colorScheme.blue,
+        contrast: "#fff"
     },
     {
         passwordChangedAt: new Date('2023-06-15T12:30:00Z'),
@@ -148,6 +152,7 @@ export const resources: User[] = [
         password: 'password456abc',
         roles: [UserRoles.PROJECT_MANAGER],
         id: '456e7890-b12c-3d45-a678-901234567890',
-        color: "lavender"
+        color: colorScheme.teal,
+        contrast: "#fff"
     }
 ];

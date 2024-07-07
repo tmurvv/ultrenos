@@ -1,6 +1,7 @@
 export const projects = [
     {
-        name: 'Downtown Highrise',
+        name: "Chen",
+        description: 'Downtown Highrise',
         address: '123 Main St, Calgary, AB',
         lat: 51.0486,
         long: -114.0708,
@@ -9,7 +10,8 @@ export const projects = [
         notes: 'Office building construction'
     },
     {
-        name: 'Suburban Residential',
+        name: "Campbell",
+        description: 'Suburban Residential',
         address: '456 Oak Ave, Calgary, AB',
         lat: 51.1234,
         long: -114.1567,
@@ -18,7 +20,8 @@ export const projects = [
         notes: 'New housing development'
     },
     {
-        name: 'Industrial Park',
+        name: "Lavoie",
+        description: 'Industrial Park',
         address: '789 Industrial Way, Calgary, AB',
         lat: 51.0789,
         long: -114.2345,
@@ -27,7 +30,8 @@ export const projects = [
         notes: 'Warehouse construction'
     },
     {
-        name: 'University Campus',
+        name: "Gagnon",
+        description: 'University Campus',
         address: '101 University Dr, Calgary, AB',
         lat: 51.0678,
         long: -114.1234,
@@ -36,7 +40,8 @@ export const projects = [
         notes: 'New science building'
     },
     {
-        name: 'Shopping Mall',
+        name: "Macdonald",
+        description: 'Shopping Mall',
         address: '567 Retail Blvd, Calgary, AB',
         lat: 51.1456,
         long: -114.0987,
@@ -45,7 +50,8 @@ export const projects = [
         notes: 'Mall expansion'
     },
     {
-        name: 'Hospital Renovation',
+        name: "Singh",
+        description: 'Hospital Renovation',
         address: '890 Medical Ave, Calgary, AB',
         lat: 51.0234,
         long: -114.1678,
@@ -54,7 +60,8 @@ export const projects = [
         notes: 'Renovating patient wing'
     },
     {
-        name: 'Bridge Construction',
+        name: "Wilson",
+        description: 'Bridge Construction',
         address: '234 River Rd, Calgary, AB',
         lat: 51.0567,
         long: -114.0345,
@@ -63,7 +70,8 @@ export const projects = [
         notes: 'New bridge over the river'
     },
     {
-        name: 'School Renovation',
+        name: "Kwan",
+        description: 'School Renovation',
         address: '678 Education Way, Calgary, AB',
         lat: 51.1234,
         long: -114.2345,
