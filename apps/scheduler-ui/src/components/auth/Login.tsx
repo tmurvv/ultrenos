@@ -1,6 +1,5 @@
 // packages
 import { useState, useContext, useEffect } from "react";
-import axios from "axios";
 import uuid from "react-uuid";
 
 // internal
@@ -15,7 +14,6 @@ import {
   Box,
   Button,
   FormControl,
-  Modal,
   TextField,
   Typography,
 } from "@mui/material";
@@ -23,19 +21,7 @@ import { DEFAULT_USER } from "./DEFAULT_USER";
 import { ComingSoonModal } from "../coming-soon-modal";
 import { colorScheme } from "../../constants/colors";
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  height: 150,
-  border: "9px double #757575",
-  p: 4,
-  backgroundColor: "#ffffff !important",
-};
-
-export const Login = ({ setPage }) => {
+export const Login = () => {
   const { user, setUser } = useContext(UserContext);
   const { setCurrentView } = useContext(ViewContext);
   const [open, setOpen] = useState(false);
@@ -52,7 +38,7 @@ export const Login = ({ setPage }) => {
   //     setUserLogin({...userLogin, [evt.target.name]: evt.target.value, loginchange: true});
   // }
   // // handle submit
-  const handleSubmit = async (evt) => {
+  const handleSubmit = async () => {
     setUser(DEFAULT_USER);
     setCurrentView(ViewContexts.MAIN);
     console.log("userform login", user);
@@ -146,10 +132,6 @@ export const Login = ({ setPage }) => {
             marginTop: "10px",
             alignItems: "center",
           }}
-          // style={{ cursor: "pointer", margin: "auto", width: "fit-content" }}
-          // onClick={() => {
-          //   setPage("Signup");
-          // }}
         >
           <Typography variant={"h5"}>Click Submit to Login as a</Typography>
           <Typography variant={"h5"}>Demo User and View the WIP</Typography>

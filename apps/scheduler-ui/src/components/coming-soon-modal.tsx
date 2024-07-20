@@ -1,19 +1,14 @@
+import * as React from "react";
 import { Box, Button, Modal, Typography } from "@mui/material";
+
 import { colorScheme } from "../constants/colors";
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 200,
-  height: 150,
-  border: "9px double #757575",
-  p: 4,
-  backgroundColor: "#ffffff !important",
-};
+interface ComingSoonModalProps {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export const ComingSoonModal = ({ open, setOpen }) => {
+export const ComingSoonModal = ({ open, setOpen }: ComingSoonModalProps) => {
   return (
     <Modal open={open} onClose={() => setOpen(false)}>
       <Box

@@ -1,22 +1,15 @@
 // packages
 import * as React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Box, List, Modal, Typography } from "@mui/material";
+import { Box, List, Typography } from "@mui/material";
 import { UserContext, ViewContext } from "../App";
 import { ViewContexts } from "../enums/ViewContexts";
 import { UserRoles } from "../enums/UserRoles";
 import { colorScheme } from "../constants/colors";
-import { DEFAULT_USER } from "./auth/DEFAULT_USER";
-import { useEffect } from "react";
 import { ComingSoonModal } from "./coming-soon-modal";
-//internal
-// import {PageContext} from '../contexts/PageContext.js';
-// import {UserContext} from '../contexts/UserContext.js';
-// import {AdminEditTimesheetsContext} from '../contexts/AdminEditTimesheetsContext.js';
-// import {USER_INIT} from '../constants/inits';
-// import NavBarCss from '../styles/NavBar.css.js'
+import {DEFAULT_USER} from "./auth/DEFAULT_USER";
 
-const { AUTH, DASHBOARD, LOGIN, MAIN } = ViewContexts;
+const { LOGIN } = ViewContexts;
 const { ADMIN } = UserRoles;
 
 const sx = {
@@ -151,7 +144,7 @@ export const NavBar = () => {
                     <Link
                       to="/Auth/Login"
                       onClick={() => {
-                        setUser(null);
+                        setUser({...DEFAULT_USER, email: "", roles: [], firstName: "", lastName: ""});
                         setCurrentView(LOGIN);
                         setOpen(false);
                       }}

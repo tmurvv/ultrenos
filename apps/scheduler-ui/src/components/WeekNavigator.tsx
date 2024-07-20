@@ -1,28 +1,29 @@
-import React, { useState } from 'react';
-import { Box, IconButton, Typography } from '@mui/material';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { addDays, format, startOfWeek } from 'date-fns';
+import * as React from "react";
+import { Box, IconButton, Typography } from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { addDays, format } from "date-fns";
 
 interface WeekNavigatorProps {
-  onWeekChange: (weekStart: Date) => void;
+  currentWeekStart: Date;
+  setCurrentWeekStart: React.Dispatch<React.SetStateAction<Date>>;
 }
 
-export const WeekNavigator: React.FC<WeekNavigatorProps> = ({ currentWeekStart, onWeekChange, setCurrentWeekStart}) => {
-
+export const WeekNavigator: React.FC<WeekNavigatorProps> = ({
+  currentWeekStart,
+  setCurrentWeekStart,
+}) => {
   const handlePrevWeek = () => {
     const prevWeekStart = addDays(currentWeekStart, -7);
     setCurrentWeekStart(prevWeekStart);
-    onWeekChange(prevWeekStart);
   };
 
   const handleNextWeek = () => {
     const nextWeekStart = addDays(currentWeekStart, 7);
     setCurrentWeekStart(nextWeekStart);
-    onWeekChange(nextWeekStart);
   };
 
-  const formattedWeekStart = format(currentWeekStart, 'MMMM dd, yyyy');
+  const formattedWeekStart = format(currentWeekStart, "MMMM dd, yyyy");
 
   return (
     <Box display="flex" alignItems="center" justifyContent="left">

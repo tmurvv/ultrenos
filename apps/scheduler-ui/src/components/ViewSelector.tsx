@@ -1,9 +1,5 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { FormControl } from "@mui/material";
+
 import {
   Accordion,
   AccordionDetails,
@@ -13,7 +9,7 @@ import {
 } from "@mui/joy";
 import { ViewContexts } from "../enums/ViewContexts";
 import { startCase } from "lodash";
-import { ComingSoonModal, comingSoonModal } from "./coming-soon-modal";
+import { ComingSoonModal } from "./coming-soon-modal";
 
 const { DAY, WEEK, MONTH, RESOURCE } = ViewContexts;
 
@@ -26,26 +22,17 @@ export const ViewSelector: React.FC<ViewSelectorProps> = ({
   viewName,
   setViewName,
 }) => {
+  console.log(viewName, setViewName)
   const [open, setOpen] = React.useState(false);
-  const handleChange = (event: SelectChangeEvent) => {
-    setViewName(event.target.value as string);
-  };
+  // const handleChange = (event: SelectChangeEvent) => {
+  //   setViewName(event.target.value as string);
+  // };
 
   return (
     <>
       <Accordion m={2} sx={{ width: "100%" }} defaultExpanded>
         <AccordionSummary>Select View</AccordionSummary>
         <AccordionDetails>
-          {/*<Box*/}
-          {/*    sx={{*/}
-          {/*      justifyContent: "right",*/}
-          {/*      alignItems: "right",*/}
-          {/*      width: "200px",*/}
-          {/*      mb: 2,*/}
-          {/*    }}*/}
-          {/*>*/}
-          {/*  <FormControl variant="standard" sx={{ width: "100%" }}>*/}
-          {/*    <InputLabel id="select-viewName-label">Select View</InputLabel>*/}
           <RadioGroup
             id="select-viewName"
             // value={viewName}
@@ -66,8 +53,6 @@ export const ViewSelector: React.FC<ViewSelectorProps> = ({
               By Resource
             </Radio>
           </RadioGroup>
-          {/*  </FormControl>*/}
-          {/*</Box>*/}
         </AccordionDetails>
       </Accordion>
       <ComingSoonModal open={open} setOpen={setOpen} />

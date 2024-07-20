@@ -1,15 +1,17 @@
+import { Grid } from "@mui/material";
+import { startOfWeek } from "date-fns";
+import { useEffect, useState } from "react";
+
+import { projects, resources } from "../test-data";
+
+import { ActionBar } from "./ActionBar";
 import { Row } from "./Row";
 import { MainViewHeaderRow } from "./MainViewHeaderRow";
-import { resources } from "../test-data";
 import { ProjectSelector } from "./ProjectSelector";
 import { ViewSelector } from "./ViewSelector";
-import { useEffect, useState } from "react";
-import { Grid } from "@mui/material";
 import { ProjectManagerColors } from "./ProjectManagerColors";
-import { projects } from "../test-data";
-import { WeekNavigator } from "./WeekNavigator";
-import { startOfWeek } from "date-fns";
-import { ActionBar } from "./ActionBar";
+
+export type StringIndexedObject<T> = Record<string, T>;
 
 const resourceSorted = resources.sort((a, b) =>
   a.lastName.localeCompare(b.lastName),
@@ -21,7 +23,7 @@ const resourceNames = resourceSorted.map(
 
 export const MainView = () => {
   const [viewName, setViewName] = useState("weeklyResource");
-  const [checkedProjects, setCheckedProjects] = useState({});
+  const [checkedProjects, setCheckedProjects] = useState<StringIndexedObject<boolean>>({});
 
   const [currentWeekStart, setCurrentWeekStart] = useState<Date>(
     startOfWeek(new Date(), { weekStartsOn: 1 }),
@@ -31,7 +33,6 @@ export const MainView = () => {
     const initialCheckedProjects = projects.reduce((acc, project) => {
       return { ...acc, [project.name]: true };
     }, {});
-    // console.log("initialCheckedProjects", initialCheckedProjects);
     setCheckedProjects(initialCheckedProjects);
   }, []);
 
@@ -67,7 +68,7 @@ export const MainView = () => {
         {resourceNames.map((resource) => (
           <Row
             resource={resource}
-            checkedProjects={checkedProjects}
+            checkedProjects={checkedProjects as object}
             currentWeekStart={currentWeekStart}
           />
         ))}

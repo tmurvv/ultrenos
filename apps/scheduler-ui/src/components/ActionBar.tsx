@@ -39,7 +39,6 @@ export const ActionBar = ({ currentWeekStart, setCurrentWeekStart }) => {
         <WeekNavigator
           currentWeekStart={currentWeekStart}
           setCurrentWeekStart={setCurrentWeekStart}
-          onWeekChange={(mondayDate) => console.log("change week")}
         />
         <Typography variant="h6">Week View</Typography>
         <AddAssignmentButton setOpen={setOpen} />

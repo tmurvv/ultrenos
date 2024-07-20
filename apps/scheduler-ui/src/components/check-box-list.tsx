@@ -1,14 +1,26 @@
+import * as React from "react";
 import Box from "@mui/joy/Box";
 import Checkbox from "@mui/joy/Checkbox";
+
 import { projects } from "../test-data";
 import { UserContext } from "../App";
 import { useContext, useState } from "react";
+import { isEmpty } from "lodash";
+import { StringIndexedObject } from "./MainView";
+
+interface CheckBoxListProps {
+  parent: string;
+  checkedProjects: object;
+  setCheckedProjects: React.Dispatch<
+    React.SetStateAction<StringIndexedObject<boolean>>
+  >;
+}
 
 export const CheckBoxList = ({
   parent,
   checkedProjects,
   setCheckedProjects,
-}) => {
+}: CheckBoxListProps) => {
   const { user } = useContext(UserContext);
   const [userOnly, setUserOnly] = useState(false);
   const handleCheckboxChange = (e) => {
@@ -35,24 +47,10 @@ export const CheckBoxList = ({
 
     if (isChecked) {
       Object.keys(checkedProjects).forEach((item) => {
-        // console.log("user", user);
-        // console.log("item", item);
         projects.forEach((project) => {
-          if (
+          newObject[project.name] =
             project.projectManager ===
-            `${!user || user.firstName} ${!user || user.lastName}`
-          ) {
-            console.log("project", project.projectManager);
-            console.log(
-              "username",
-              `${!user || user.firstName} ${!user || user.lastName}`,
-            );
-            newObject[project.name] = true;
-            console.log(newObject);
-          } else {
-            newObject[project.name] = false;
-            console.log(newObject);
-          }
+            `${!user || user.firstName} ${!user || user.lastName}`;
         });
         setUserOnly(true);
       });
@@ -69,15 +67,16 @@ export const CheckBoxList = ({
     <Box
       sx={{ display: "flex", flexDirection: "column", ml: 3, gap: 1, mt: 1 }}
     >
-
-      {Object.keys(checkedProjects).sort().map((projectName, idx) => (
-        <Checkbox
-          id={projectName}
-          checked={checkedProjects[projectName]}
-          onChange={handleCheckboxChange}
-          label={projectName}
-        />
-      ))}
+      {Object.keys(checkedProjects)
+        .sort()
+        .map((projectName, idx) => (
+          <Checkbox
+            id={projectName}
+            checked={checkedProjects[projectName]}
+            onChange={handleCheckboxChange}
+            label={projectName}
+          />
+        ))}
     </Box>
   );
 
@@ -85,19 +84,20 @@ export const CheckBoxList = ({
     <>
       <Box>
         <Checkbox
-            id={"My Projects"}
-            checked={checkedProjects["My Projects"]}
-            onChange={handleUserProjectsChange}
-            label={"My Projects"}
-            indeterminate={!userOnly}
+          id={"My Projects"}
+          checked={checkedProjects["My Projects"]}
+          onChange={handleUserProjectsChange}
+          label={"My Projects"}
+          indeterminate={!userOnly}
         />
       </Box>
       <Box>
         <Checkbox
           label={parent}
-          checked={Object.keys(checkedProjects)?.every(
-            (key) => checkedProjects[key],
-          )}
+          checked={
+            !isEmpty(checkedProjects) &&
+            Object.keys(checkedProjects)?.every((key) => checkedProjects[key])
+          }
           indeterminate={
             !Object.keys(checkedProjects)?.every((key) => checkedProjects[key])
           }

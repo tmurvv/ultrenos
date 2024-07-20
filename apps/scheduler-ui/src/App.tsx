@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Box, CssBaseline, Typography } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
+
 import { MainView } from "./components/MainView";
 import { AuthView } from "./components/auth/AuthView";
 import { Login } from "./components/auth/Login";
@@ -7,13 +8,11 @@ import { Dashboard } from "./components/Dashboard";
 import { ViewContexts } from "./enums/ViewContexts";
 import { User } from "./interfaces/User";
 import { UserRoles } from "./enums/UserRoles";
-// import { testData } from "./testData.ts";
 import { Banner } from "./components/Banner";
 import { NavBar } from "./components/NavBar";
 import {DEFAULT_USER} from "./components/auth/DEFAULT_USER";
 
 const { AUTH, LOGIN, MAIN, DASHBOARD } = ViewContexts;
-const { ADMIN, PROJECT_MANAGER } = UserRoles;
 
 type CurrentUser = User | undefined;
 
@@ -29,7 +28,7 @@ const userContextValue: {
   user: CurrentUser;
   setUser: React.Dispatch<React.SetStateAction<CurrentUser>>;
 } = {
-  user: undefined,
+  user: DEFAULT_USER,
   setUser: () => {},
 };
 
@@ -43,14 +42,12 @@ const sx = {
 };
 
 function App() {
-  // const {user, setUser} = React.useContext(UserContext);
+  const [user, setUser] = React.useState<User>();
+
   const [currentView, setCurrentView] = React.useState<string>(
     ViewContexts.AUTH,
   );
 
-  const [user, setUser] = React.useState<User>();
-
-  console.log('user', user);
   React.useEffect(() => {
     if (!user) {
       setCurrentView(LOGIN);
